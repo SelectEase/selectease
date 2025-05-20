@@ -6,7 +6,7 @@ import AmmplifyRating from './AmmplifyRating';
 import AmmplifySpecification from './AmmplifySpecification';
 import AmmplifySoftwareReviews from './AmmplifySoftwareReviews';
 import AmmplifyGetSoftwareCompanyDemo from './AmmplifyGetSoftwareCompanyDemo';
-import AmmplifyDropdwon from './AmmplifyDropdwon';
+import AmmplifyDropdwon from './AmmplifyDropdown';
 // import image52 from '../src/assets/image52.png';
 // import image53 from './src/assets/image53.png';
 // import image54 from './src/assets/image54.png';
@@ -25,7 +25,7 @@ const fadeIn = keyframes`
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 50px 25px;
 `;
 
 const PageContainer = styled.div`

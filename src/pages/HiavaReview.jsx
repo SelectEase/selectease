@@ -6,7 +6,7 @@ import HiavaRating from './HiavaRating';
 import HiavaSpecification from './HiavaSpecification';
 import HiavaSoftwareReviews from './HiavaSoftwareReviews';
 import HiavaGetSoftwareCompanyDemo from './HiavaGetSoftwareCompanyDemo';
-import HiavaDropdwon from './HiavaDropdwon';
+import HiavaDropdwon from './HiavaDropdown';
 // import image52 from '../src/assets/image52.png';
 // import image53 from './src/assets/image53.png';
 // import image54 from './src/assets/image54.png';
@@ -25,7 +25,7 @@ const fadeIn = keyframes`
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 50px 25px;
 `;
 
 const PageContainer = styled.div`

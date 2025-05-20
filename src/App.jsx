@@ -42,7 +42,7 @@ import GlobalScrollbarStyles from './components/GlobalScrollbarStyles';
 import ProductDetailModal from './pages/ProductDetailModal';
 import IndividualReview from './pages/IndividualReview';
 import IndividualFeature from './pages/IndividualFeature';
-import IndividualRating from './pages/individualRating';
+import IndividualRating from './pages/IndividualRating';
 import SoftwareReviews from './pages/SoftwareReviews';
 import GetSoftwareCompanyDemo from './pages/GetSoftwareCompanyDemo';
 import Specifications from './pages/Specifications';
@@ -72,28 +72,28 @@ import InVideoRating from './pages/InVideoRating';
 import InVideoSpecification from './pages/InVideoSpecification';
 import InVideoSoftwareRevies from './pages/InVideoSoftwareReviews';
 import InVideoSoftwareCompanyDemo from './pages/InVideoGetSoftwareCompanyDemo';
-import InVideoDropdwon from './pages/InVideoDropdwon';
+import InVideoDropdown from './pages/InVideoDropdown';
 import ZrikaReview from './pages/ZrikaReview';
 import ZrikaFeature from './pages/ZrikaFeature';
 import ZrikaRating from './pages/ZrikaRating';
 import ZrikaSpecification from './pages/ZrikaSpecification';
 import ZrikaSoftwareReviews from './pages/ZrikaSoftwareReviews';
 import ZrikaGetSoftwareCompanyDemo from './pages/ZrikaGetSoftwareCompanyDemo';
-import ZrikaDropdwon from './pages/ZrikaDropdwon';
+import ZrikaDropdown from './pages/ZrikaDropdown';
 import HiavaReaview from './pages/HiavaReview';
 import HiavaFeature from './pages/HiavaFeature';
 import HiavaRating from './pages/HiavaRating';
 import HiavaSpecification from './pages/HiavaSpecification';
 import HiavaSoftwareReviews from './pages/HiavaSoftwareReviews';
 import HiavaGetSoftwareCompanyDemo from './pages/HiavaGetSoftwareCompanyDemo';
-import HiavaDropdwon from './pages/HiavaDropdwon';
+import HiavaDropdown from './pages/HiavaDropdown';
 import AmmplifyReview from './pages/AmmplifyReview';
 import AmmplifyFeature from './pages/AmmplifyFeature';
 import AmmplifyRating from './pages/AmmplifyRating';
 import AmmplifySpecification from './pages/AmmplifySpecification';
 import AmmplifySoftwareReviews from './pages/AmmplifySoftwareReviews';
 import AmmplifyGetSoftwareCompanyDemo from './pages/AmmplifyGetSoftwareCompanyDemo';
-import AmmplifyDropdwon from './pages/AmmplifyDropdwon';
+import AmmplifyDropdown from './pages/AmmplifyDropdown';
 
 
 
@@ -112,6 +112,13 @@ import CaptionRating from './pages/CaptionRating';
 import CaptionSpecification from './pages/CaptionSpecification'; 
 import CaptionGetSoftwareCompanyDemo from './pages/CaptionGetSoftwareCompanyDemo';
 import CaptionDropdwon from './pages/CaptionDropdwon';
+
+import FeaturedCategories from './pages/FeaturedCategories';
+import ConversationBot from './pages/ConversationBot';
+import SalesAutomation from './pages/SalesAutomation';
+import DocumentationAi from './pages/DocumentationAi';
+
+
 
 
 // Global scroll to top button  
@@ -334,35 +341,40 @@ function App() {
             <Route path='caption-softwarereave' element={<Caption-software />} />
             <Route path='Captioncompanydemo' element={<CaptionGetSoftwareCompanyDemo />} />
             <Route path='caption-dropdwon' element={<CaptionDropdwon />} />
-            
+
             <Route path='invideo-review' element={<InVideoReview />} />
             <Route path='invideo-feature' element={<InVideoFeature />} />
             <Route path='invideo-rating' element={<InVideoRating />} />
             <Route path='invideo-specification' element={<InVideoSpecification />} />
             <Route path='invideo-softwarereaview' element={<InVideoSoftwareRevies />} />
             <Route path='invideo-softwarecompanydemo' element={<InVideoSoftwareCompanyDemo />} />
-            <Route path='invideo-dropdwon' element={<InVideoDropdwon />} />
+            <Route path='invideo-dropdwon' element={<InVideoDropdown />} />
             <Route path='zrika-review' element={<ZrikaReview />} />
             <Route path='zrika-feature' element={<ZrikaFeature />} />
             <Route path='zrika-rating' element={<ZrikaRating />} />
             <Route path='zrika-Specification' element={<ZrikaSpecification />} />
             <Route path='zrika-softwarereview' element={<ZrikaSoftwareReviews />} />
             <Route path='zrika-softwarecompanydemo' element={<ZrikaGetSoftwareCompanyDemo />} />
-            <Route path='zrika-dropdown' element={<ZrikaDropdwon />} /> 
+            <Route path='zrika-dropdown' element={<ZrikaDropdown />} /> 
             <Route path='hiava-review' element={<HiavaReaview />} />
             <Route path='hiava-feature' element={<HiavaFeature />} />
             <Route path='hiava-rating' element={<HiavaRating />} />
             <Route path='hiava-specification' element={<HiavaSpecification/>} />
             <Route path='hiava-software-review' element={<HiavaSoftwareReviews />} />
             <Route path='hiava-getsoftwarecompanydemo' element={<HiavaGetSoftwareCompanyDemo />} />
-            <Route path='hiava-dropdown' element={<HiavaDropdwon />} />
+            <Route path='hiava-dropdown' element={<HiavaDropdown />} />
             <Route path='ammplify-review' element={<AmmplifyReview />} />
             <Route path='ammplify-Feature' element={<AmmplifyFeature />} />
             <Route path='ammplify-rating' element={<AmmplifyRating />} />
             <Route path='ammplify-specification' element={<AmmplifySpecification />} />
             <Route path='ammplify-software-review' element={<AmmplifySoftwareReviews />} />
             <Route path='ammplify-getsoftwarecompanydemo' element={<AmmplifyGetSoftwareCompanyDemo />} />
-            <Route path='ammplify-dropdown' element={<AmmplifyDropdwon />} />
+            <Route path='ammplify-dropdown' element={<AmmplifyDropdown />} />
+            <Route path='featured-categories'element={<FeaturedCategories />} />
+            <Route path='conversation-bot'element={<ConversationBot />} />
+            <Route path='sale-automation'element={<SalesAutomation />} />
+            <Route path='documentation-ai'element={<DocumentationAi />} />
+
 
 
 
