@@ -116,7 +116,7 @@ import FeaturedCategories from './pages/FeaturedCategories';
 import ConversationBot from './pages/ConversationBot';
 import SalesAutomation from './pages/SalesAutomation';
 import DocumentationAi from './pages/DocumentationAi';
-import IndividualRating from './pages/IndividualRating.jsx'
+// import IndividualRating from './pages/IndividualRating.jsx'
 
 
 
@@ -300,7 +300,7 @@ function App() {
             <Route path="School" element={<School />} />
             <Route path="individual-review" element={<IndividualReview />} />
             <Route path="individual-feature" element={<IndividualFeature />} />
-            <Route path="individual-rating" element={<IndividualRating />} />
+            {/* <Route path="individual-rating" element={<IndividualRating />} /> */}
             <Route path="software-review" element={<SoftwareReviews />} />
             <Route path="get-software-company-demo" element={<GetSoftwareCompanyDemo />} />
             <Route path="specifications" element={<Specifications />} />
