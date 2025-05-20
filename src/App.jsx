@@ -116,7 +116,7 @@ import FeaturedCategories from './pages/FeaturedCategories';
 import ConversationBot from './pages/ConversationBot';
 import SalesAutomation from './pages/SalesAutomation';
 import DocumentationAi from './pages/DocumentationAi';
-import IndividualRating from './pages/IndividualRating';
+import IndividualRating from './pages/IndividualRating.jsx'
 
 
 
