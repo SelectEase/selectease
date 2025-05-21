@@ -40,13 +40,13 @@ import { ChevronUp } from 'lucide-react';
 import AuthContext from './context/AuthContext';
 import GlobalScrollbarStyles from './components/GlobalScrollbarStyles';
 import ProductDetailModal from './pages/ProductDetailModal';
-import IndividualReview from './pages/IndividualReview';
-import IndividualFeature from './pages/IndividualFeature';
-import IndividualRating from './pages/IndividualRating';
-import SoftwareReviews from './pages/SoftwareReviews';
-import GetSoftwareCompanyDemo from './pages/GetSoftwareCompanyDemo';
-import Specifications from './pages/Specifications';
-import Dropdwonindividual from './pages/Dropdwonindividual';
+// import IndividualReview from './pages/IndividualReview';
+// import IndividualFeature from './pages/IndividualFeature';
+// import IndividualRating from './pages/IndividualRating';
+// import SoftwareReviews from './pages/SoftwareReviews';
+// import GetSoftwareCompanyDemo from './pages/GetSoftwareCompanyDemo';
+// import Specifications from './pages/Specifications';
+// import Dropdwonindividual from './pages/Dropdwonindividual';
 import Dashboard from './pages/Dashboard';
 import QuickSmartReview from './pages/QuickSmartReview';
 import QuickSmartFeature from './pages/QuickSmartFeature';
@@ -111,7 +111,7 @@ import CaptionFeature from './pages/CaptionFeature';
 import CaptionRating from './pages/CaptionRating';
 import CaptionSpecification from './pages/CaptionSpecification'; 
 import CaptionGetSoftwareCompanyDemo from './pages/CaptionGetSoftwareCompanyDemo';
-import CaptionDropdwon from './pages/CaptionDropdwon';
+import CaptionDropdown from './pages/CaptionDropdown';
 
 import FeaturedCategories from './pages/FeaturedCategories';
 import ConversationBot from './pages/ConversationBot';
@@ -298,13 +298,13 @@ function App() {
             <Route path="about-us" element={<Testimonials />} />
             <Route path="product-detail" element={<ProductDetailModal />} />
             <Route path="School" element={<School />} />
-            <Route path="individual-review" element={<IndividualReview />} />
+            {/* <Route path="individual-review" element={<IndividualReview />} />
             <Route path="individual-feature" element={<IndividualFeature />} />
             <Route path="individual-rating" element={<IndividualRating />} />
             <Route path="software-review" element={<SoftwareReviews />} />
             <Route path="get-software-company-demo" element={<GetSoftwareCompanyDemo />} />
             <Route path="specifications" element={<Specifications />} />
-            <Route path="drop-down-individual" element={<Dropdwonindividual />} />
+            <Route path="drop-down-individual" element={<Dropdwonindividual />} /> */}
             {/* <Route path="individaul-company-name" element={<IndividaulCompanyName />} /> */}
             <Route path="quick-smart-review" element={<QuickSmartReview />} />
             <Route path="quick-smart-feature" element={<QuickSmartFeature />} />
@@ -340,7 +340,7 @@ function App() {
             <Route path='caption-specifitication' element={<CaptionSpecification />} />
             <Route path='caption-softwarereave' element={<Caption-software />} />
             <Route path='Captioncompanydemo' element={<CaptionGetSoftwareCompanyDemo />} />
-            <Route path='caption-dropdwon' element={<CaptionDropdwon />} />
+            <Route path='caption-dropdwon' element={<CaptionDropdown />} />
 
             <Route path='invideo-review' element={<InVideoReview />} />
             <Route path='invideo-feature' element={<InVideoFeature />} />

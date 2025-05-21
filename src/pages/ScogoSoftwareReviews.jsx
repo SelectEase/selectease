@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // Common Styles
 const SectionContainer = styled.div`
+  width: 100%;
   background-color: #fff;
   border-radius: 10px;
   padding: 30px;
@@ -92,6 +93,7 @@ const Avatar = styled.div`
 
 const UserInfo = styled.div`
   text-align: center;
+
   
   @media (max-width: 768px) {
     text-align: left;
@@ -349,7 +351,7 @@ const BuyButton = styled.button`
 `;
 
 // Software Reviews Component
-const ScogoSoftwareReviews = ({ reviews = [] }) => {
+const ScogoSoftwareReviews  = ({ reviews = [] }) => {
   // Sample data if none provided
   const reviewsData = reviews.length > 0 ? reviews : [
     {
@@ -358,7 +360,7 @@ const ScogoSoftwareReviews = ({ reviews = [] }) => {
       userName: 'Laksh Hardwares',
       businessType: 'Owner, Retail',
       userType: 'Individual',
-      userSince: 'Software user since: 6-12 months',
+      userSince: 'User since: 6-12 months',
       reviewDate: 'Reviewed on: Mar 16, 2020',
       rating: 5,
       quote: 'You can do all types of business transactions with Vyapaar. No need to carry any account books or managing manually ledgers.',
@@ -379,7 +381,7 @@ const ScogoSoftwareReviews = ({ reviews = [] }) => {
       userName: 'Laksh Hardwares',
       businessType: 'Owner, Retail',
       userType: 'Individual',
-      userSince: 'Software user since: 6-12 months',
+      userSince: 'User since: 6-12 months',
       reviewDate: 'Reviewed on: Mar 16, 2020',
       rating: 5,
       quote: 'You can do all types of business transactions with Vyapaar. No need to carry any account books or managing manually ledgers.',

@@ -1626,13 +1626,14 @@ const RatingContainer = styled.div`
   gap: 16px;
   margin-bottom: 12px;
   flex-wrap: wrap;
+  color: #333;
 `;
 
 const Rating = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
-  background-color: #f5f5f5;
+  background-color:rgba(245, 245, 245, 0.79);
   padding: 4px 8px;
   border-radius: 16px;
   
@@ -1642,8 +1643,9 @@ const Rating = styled.div`
 `;
 
 const ActionButton = styled.button`
-  background-color: #f5f5f5;
+  background-color:rgba(245, 245, 245, 0.68);
   border: none;
+  color: #333;
   padding: 6px 12px;
   border-radius: 4px;
   font-size: 14px;
@@ -1746,7 +1748,7 @@ const CategorySliderSection = styled.div`
   justify-content: space-between;
   padding: 15px 40px;
   max-width: 1200px;
-  margin: 15px auto;
+  margin: 85px auto;
   background: white;
   
   @media (max-width: 768px) {
@@ -1758,7 +1760,7 @@ const CategorySliderSection = styled.div`
 `;
 
 const CategoryTitle = styled.h2`
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 500;
   color: #333;
   margin: 0;
@@ -2160,15 +2162,15 @@ const Home = () => {
   
   // Software data for each category (same data for all categories in this example)
   const softwareData = [
-    { color: '#FFB347', name: 'Napkin.ai', rating: '5.0', reviews: 144,  image:napkinlogo2 },
-    { color: '#FFB347', name: 'Caption.ai', rating: '5.0', reviews: 144, image: caption },
-    { color: '#779ECB', name: 'Invideo.ai', rating: '5.0', reviews: 144, image: invideo },
-    { color: '#FF6961', name: 'Ammplify.ai', rating: '5.0', reviews: 144, image: amplify },
-    { color: '#FFD700', name: 'Quicksmart.ai', rating: '5.0', reviews: 144, image: quick },
-    { color: '#B19CD9', name: 'Scogo.ai', rating: '5.0', reviews: 144,  image : scogologo },
-    { color: '#B19CD9', name: 'Lowtouch.ai', rating: '5.0', reviews: 144, image: lowtouch},
-    { color: '#B19CD9', name: 'Hiava.ai', rating: '5.0', reviews: 144, image: ava },
-    { color: '#B19CD9', name: 'Zrika.ai', rating: '5.0', reviews: 144, image: zrika},
+    { id: '1', color: '#FFB347', name: 'Napkin.ai', rating: '5.0', reviews: 144,  image:napkinlogo2, path: '/napkin-review' },
+    { id: '2', color: '#FFB347', name: 'Caption.ai', rating: '5.0', reviews: 144, image: caption, path: '/caption-review' },
+    { id: '3', color: '#779ECB', name: 'Invideo.ai', rating: '5.0', reviews: 144, image: invideo, path: '/invideo-review' },
+    { id: '4', color: '#FF6961', name: 'Ammplify.ai', rating: '5.0', reviews: 144, image: amplify, path: '/ammplify-review' },
+    { id: '5', color: '#FFD700', name: 'Quicksmart.ai', rating: '5.0', reviews: 144, image: quick, path: '/quick-smart-review' },
+    { id: '6', color: '#B19CD9', name: 'Scogo.ai', rating: '5.0', reviews: 144,  image : scogologo, path: '/scogo-review' },
+    { id: '7', color: '#B19CD9', name: 'Lowtouch.ai', rating: '5.0', reviews: 144, image: lowtouch, path: '/lowtouch-review'},
+    { id: '8', color: '#B19CD9', name: 'Hiava.ai', rating: '5.0', reviews: 144, image: ava, path: '/hiava-review' },
+    { id: '9', color: '#B19CD9', name: 'Zrika.ai', rating: '5.0', reviews: 144, image: zrika, path: '/zrika-review'},
   ];
   
   // Handler for category tab click
@@ -2478,6 +2480,7 @@ const Home = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      
     >
       <ProductsTitle>Recently Visited Products</ProductsTitle>
       <SliderContainer>
@@ -2635,6 +2638,14 @@ const Home = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
+        style={{
+              fontFamily: 'Outfit, sans-serif',
+              fontWeight: 500,
+              fontSize: '30px',
+              color: '#383B46',
+              marginBottom: '32px',
+              marginTop: '0',
+            }}
       >
         Discover Top Software by Categories
       </UniqueSectionTitle>
@@ -2687,9 +2698,9 @@ const Home = () => {
   ) : (
     softwareData.slice(0, cardsPerCategory[activeCategory]).map((software, i) => (
       <UniqueSoftwareCard 
-        key={i} 
+        key={UniqueSoftwareCard.id} 
         whileHover={{ scale: 1.03 }}
-        onClick={() => navigate(`/products/software-${i+1}`)}
+         onClick={() => handleItemClick(software.path)}
       >
         <UniqueSoftwareIcon bg={software.color}>
           <img src={software.image} alt={software.name} />
@@ -2707,68 +2718,116 @@ const Home = () => {
     </UniqueContentWrapper>
      
       <ReviewsWrapper
-        backgroundImage={reviewsBg}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.9 }}
+  style={{ backgroundColor: '#003B5C', padding: '4rem 2rem', minHeight:'400px'}}
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.6, delay: 0.9 }}
+>
+  <ContentWrapper style={{ display: 'flex', gap: '3rem', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+    
+    {/* Left Section */}
+    <ReviewHeading
+      style={{ flex: '1 1 300px', marginTop:'50px'}}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 1.0 }}
+    >
+      <SectionTitle style={{ color: 'white', fontSize: '2rem', fontWeight: 500, lineHeight: '1.3' }}>
+        Top {Math.min(9, products.length)} Most Reviewed <br />
+        Software of {new Date().toLocaleString('default', { month: 'long' })} <br /> {new Date().getFullYear()}
+      </SectionTitle>
+
+      {/* <button
+        style={{
+          marginTop: '2rem',
+          backgroundColor: 'white',
+          color: '#003B5C',
+          padding: '0.7rem 1.5rem',
+          borderRadius: '9999px',
+          border: 'none',
+          cursor: 'pointer',
+          fontWeight: '600'
+        }}
+        onClick={() => navigate('/products')}
       >
-        <ContentWrapper>
-          <ReviewHeading
-            initial={{ opacity: 0, y: 10 }}
+        All Review
+      </button> */}
+    </ReviewHeading>
+
+    {/* Right Section (Cards) */}
+    <ReviewCardsGrid
+      style={{ display: 'flex', gap: '1.5rem', flex: '2 1 600px', flexWrap: 'wrap', marginTop:'50px' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 1.1 }}
+    >
+      {(reviews.length > 0 ? reviews.slice(0, 2) : [
+        {
+          id: 1,
+          title: "Great tool",
+          comment: "Every new business and start-up, big or small, goes through the five stages of business growth. These phases include existence, survival, success, take-off, and resource maturity.",
+          rating: 5,
+          product_id: 1
+        },
+        {
+          id: 2,
+          title: "Highly recommended",
+          comment: "Every new business and start-up, big or small, goes through the five stages of business growth. These phases include existence, survival, success, take-off, and resource maturity.",
+          rating: 5,
+          product_id: 2
+        }
+      ]).map((review, index) => {
+        const reviewProduct = products.find(p => p.id === review.product_id) || {};
+
+        return (
+          <SoftwareReviewCard
+            key={review.id || index}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.0 }}
+            transition={{ duration: 0.3, delay: 1.1 + (index * 0.1) }}
+            style={{
+              backgroundColor: 'white',
+              borderRadius: '1rem',
+              padding: '1.5rem',
+              maxWidth: '350px',
+              flex: '1 1 300px',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+            }}
           >
-            <SectionTitle color="white">
-              Top {Math.min(8, products.length)} Most Reviewed Software of {new Date().toLocaleString('default', { month: 'long' })} {new Date().getFullYear()}
-            </SectionTitle>
-            {/* <ReviewAllButton
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/products')}
+            <div className="quote-icon" style={{ fontSize: '2rem', color: '#003B5C', marginBottom: '1rem' }}>❝</div>
+            <p className="quote-text" style={{ color: '#2C2C2C', fontSize: '0.95rem', lineHeight: '1.5' }}>
+              "{review.comment}"
+            </p>
+            <div className="rating" style={{ marginTop: '1rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+              {renderStars(review.rating || 5)}
+              <span className="rating-count" style={{ color: '#2C2C2C', fontSize: '0.9rem' }}>
+                ({review.rating_count || 1156})
+              </span>
+            </div>
+            <a
+              href="#"
+              className="read-more"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(`/products/${review.product_id}`);
+              }}
+              style={{
+                display: 'inline-block',
+                marginTop: '1rem',
+                color: '#0073E6',
+                textDecoration: 'none',
+                fontWeight: '500',
+                fontSize: '0.9rem'
+              }}
             >
-              All Review
-            </ReviewAllButton> */}
-          </ReviewHeading>
-          
-          <ReviewCardsGrid
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.1 }}
-          >
-            {(reviews.length > 0 ? reviews.slice(0, 2) : [
-              { id: 1, title: "Great tool", comment: "Every new business and start-up, big or small, goes through the five stages of business growth. These phases include existence, survival, success, take-off, and resource maturity.", rating: 5, product_id: 1 },
-              { id: 2, title: "Highly recommended", comment: "Every new business and start-up, big or small, goes through the five stages of business growth. These phases include existence, survival, success, take-off, and resource maturity.", rating: 5, product_id: 2 }
-            ]).map((review, index) => {
-              const reviewProduct = products.find(p => p.id === review.product_id) || {};
-              
-              return (
-                <SoftwareReviewCard
-                  key={review.id || index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 1.1 + (index * 0.1) }}
-                  // onClick={() => navigate(`/products/${review.product_id}`)}
-                >
-                  <div className="quote-icon">❝</div>
-                  <p className="quote-text">
-                    "{review.comment || "Every new business and start-up, big or small, goes through the five stages of business growth. These phases include existence, survival, success, take-off, and resource maturity."}"
-                  </p>
-                  <div className="rating">
-                    {renderStars(review.rating || 5)}
-                    <span className="rating-count">({review.rating_count || 1156})</span>
-                  </div>
-                  {/* <a href="#" className="read-more" onClick={(e) => {
-                    e.preventDefault();
-                    navigate(`/products/${review.product_id}`);
-                  }}>
-                    Read More <span>→</span>
-                  </a> */}
-                </SoftwareReviewCard>
-              );
-            })}
-          </ReviewCardsGrid>
-        </ContentWrapper>
-      </ReviewsWrapper>
+              {/* Read More <span>→</span> */}
+            </a>
+          </SoftwareReviewCard>
+        );
+      })}
+    </ReviewCardsGrid>
+  </ContentWrapper>
+</ReviewsWrapper>
 {/* 
       <ExploreSection
       initial={{ opacity: 0, y: 20 }}
@@ -2803,7 +2862,7 @@ const Home = () => {
             style={{
               fontFamily: 'Outfit, sans-serif',
               fontWeight: 500,
-              fontSize: '32px',
+              fontSize: '30px',
               color: '#383B46',
               marginBottom: '32px',
               marginTop: '0',
@@ -2835,11 +2894,12 @@ const Home = () => {
                   textAlign: 'left',
                   cursor: 'pointer',
                   transition: 'box-shadow 0.2s',
-                  minHeight: '370px',
+                  minHeight: '350px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-start',
                   alignItems: 'flex-start',
+                  marginBottom: '30px',
                 }}
                 onClick={() => navigate(product.path)}
               >
@@ -3166,7 +3226,7 @@ const Home = () => {
           transition={{ duration: 0.5, delay: 2.1 }}
         >
           <SectionTitle 
-            style={{ textAlign: 'left' }}
+            style={{ textAlign: 'center', color:'#383B46',fontWeight: '500' }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 2.2 }}
@@ -3179,6 +3239,7 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 2.3 }}
           >
             <TestimonialCard
+               style={{ height:'340px' }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 2.4 }}
@@ -3226,6 +3287,7 @@ const Home = () => {
           transition={{ duration: 0.5, delay: 2.3 }}
         >
           <SectionTitle
+            style={{ textAlign: 'left', color:'#383B46',fontWeight: 500, fontSize: '30px',marginBottom:'15px' }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 2.4 }}
@@ -3233,6 +3295,7 @@ const Home = () => {
             Blog Highlights
           </SectionTitle>
           <Grid 
+             style={{ marginBottom:'60px'}}
             columns="repeat(3, 1fr)"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -3274,6 +3337,7 @@ const Home = () => {
 
       <Section>
         <ContentWrapper
+           style={{ marginBottom:'50px'}}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 2.6 }}
@@ -3291,7 +3355,8 @@ const Home = () => {
                 initial={{ scale: 1.1 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8 }}
-              />
+                
+              />testimonials
             </div>
             <div className="content-section">
               <motion.h2

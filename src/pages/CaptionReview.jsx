@@ -6,7 +6,7 @@ import CaptionRating from './CaptionRating';
 import CaptionSpecification from './CaptionSpecification';
 import CaptionSoftwareReviews from './CaptionSoftwareReviews';
 import CaptionGetSoftwareCompanyDemo from './CaptionGetSoftwareCompanyDemo';
-import CaptionDropdwon from './CaptionDropdwon';
+import CaptionDropdown from './CaptionDropdown';
 
 // import Caption1 from './src/assets/Caption1.png';
 // import Caption2 from './src/assets/Caption2.png';
@@ -828,7 +828,7 @@ const CaptionReview = ({ product = mockProductData }) => {
           {sectionsVisible.CaptionSpecifications && <CaptionSpecification />}
           {sectionsVisible.CaptionSoftwareReviews && <CaptionSoftwareReviews />}
           {sectionsVisible.CaptionGetSoftwareCompanyDemo && <CaptionGetSoftwareCompanyDemo />}
-          {sectionsVisible.CaptionDropdwon && <CaptionDropdwon />}
+          {sectionsVisible.CaptionDropdwon && <CaptionDropdown />}
         
     </Container>
   );

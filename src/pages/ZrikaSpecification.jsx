@@ -1,156 +1,146 @@
 import React from 'react';
 import styled from 'styled-components';
-import plus from '../assets/plus.svg';
-import minus from '../assets/minus.svg';
 
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Outfit', sans-serif;
-`;
+// Main container for the Pros and Cons section
+const ProsConsContainer = styled.div`
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 24px; 
+  justify-content: center; 
+  padding: 2rem; 
+  background-color: #fff; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
 
-const ProsConsSection = styled.div`
-  background-color: #fff;
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const ProsConsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 768px) {
+    justify-content: space-between; 
+    
   }
 `;
 
-const ProsContainer = styled.div`
-  width: auto;
-  border-right: 1px solid #ddd;
-  padding-right: 24px;
+// Individual column for Pros or Cons
+const ProsConsColumn = styled.div`
+  flex: 1;
+  min-width: 300px; 
+  padding: 24px; 
+  background: #fff;
+  border-radius: 8px; 
+  
+  // Adding the right border for the first column (Pros)
+  &:first-child {
+    @media (min-width: 768px) {
+      border-right: 1px solid #e0e0e0;
+      padding-right: 36px; 
+      margin-right: 36px;
+    }
+  }
+
+  
+  
+  @media (min-width: 768px) {
+    &:last-child {
+      padding-left: 0; 
+    }
+  }
 `;
 
-const ConsContainer = styled.div`
-  width: auto;
-  padding-left: 24px;
-`;
-
-const ColumnTitle = styled.h3`
-  font-size: 20px;
+const ColumnHeading = styled.h2`
+  font-size: 1.5rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 24px;
+  text-align: left; 
 `;
 
-const ReviewItem = styled.div`
-  margin-bottom: 24px;
-`;
-
-const ReviewHeader = styled.div`
+const ListItem = styled.div`
   display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px; 
+  position: relative; 
+  &:last-child {
+    margin-bottom: 0; 
+  }
+`;
+
+const IconWrapper = styled.div`
+  flex-shrink: 0; 
+  width: 24px;
+  height: 24px;
+  border-radius: 6px; 
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  margin-right: 12px; 
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff; // White icon color
+  background-color: ${props => (props.type === 'pros' ? '#FFC107' : '#dc3545')}; // Orange for pros, red for cons
+  border: 1px solid ${props => (props.type === 'pros' ? '#FFC107' : '#dc3545')}; // Matching border
 `;
 
-const ReviewIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-right: 16px;
+const ItemContent = styled.div`
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
 `;
 
-const ReviewText = styled.p`
-  font-size: 16px;
-  line-height: 1.6;
+const ItemText = styled.p`
+  font-size: 1rem;
   color: #333;
-  margin: 0;
+  margin: 0; 
+  line-height: 1.4; 
 `;
 
-const ReviewAuthor = styled.div`
-  font-size: 14px;
+const ItemAuthorDate = styled.span`
+  font-size: 0.85rem;
   color: #777;
-  margin-top: 4px;
+  margin-top: 4px; 
 `;
 
-const updatedProsConsData = {
+// Example data structure (you'll replace this with your actual props)
+const mockData = {
   pros: [
-    {
-      id: 1,
-      text: "Strong automation capabilities",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    },
-    {
-      id: 2,
-      text: "Easy integrations with major platforms",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    },
-    {
-      id: 3,
-      text: "Real-time anomaly detection",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    }
+    { text: 'Strong automation capabilities', author: 'Jane Doe', date: 'August 16, 2024' },
+    { text: 'Easy integrations with major platforms', author: 'Jane Doe', date: 'August 16, 2024' },
+    { text: 'Real-time anomaly detection', author: 'Jane Doe', date: 'August 16, 2024' },
   ],
   cons: [
-    {
-      id: 1,
-      text: "Basic customization options",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    },
-    {
-      id: 2,
-      text: "Less effective on smartphones",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    },
-    {
-      id: 3,
-      text: "Limited advanced analytics",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    }
-  ]
+    { text: 'Basic customization options', author: 'Jane Doe', date: 'August 16, 2024' },
+    { text: 'Less effective on smartphones', author: 'Jane Doe', date: 'August 16, 2024' },
+    { text: 'Limited advanced analytics', author: 'Jane Doe', date: 'August 16, 2024' },
+  ],
 };
 
-const ZrikaSpecification = ({ prosConsData = updatedProsConsData }) => {
+const  ZrikaSpecification = ({ prosData = mockData.pros, consData = mockData.cons }) => {
   return (
-    <Container>
-      <ProsConsSection>
-        <ProsConsGrid>
-          <ProsContainer>
-            <ColumnTitle>Pros</ColumnTitle>
-            {prosConsData.pros.map(pro => (
-              <ReviewItem key={pro.id}>
-                <ReviewHeader>
-                  <ReviewIcon src={plus} alt="Plus" />
-                  <ReviewText>{pro.text}</ReviewText>
-                </ReviewHeader>
-                <ReviewAuthor>{pro.author} - {pro.date}</ReviewAuthor>
-              </ReviewItem>
-            ))}
-          </ProsContainer>
+    <ProsConsContainer>
+      <ProsConsColumn>
+        <ColumnHeading>Pros</ColumnHeading>
+        {prosData.map((item, index) => (
+          <ListItem key={index}>
+            <IconWrapper type="pros">+</IconWrapper>
+            <ItemContent>
+              <ItemText>{item.text}</ItemText>
+              <ItemAuthorDate>{item.author} - {item.date}</ItemAuthorDate>
+            </ItemContent>
+          </ListItem>
+        ))}
+      </ProsConsColumn>
 
-          <ConsContainer>
-            <ColumnTitle>Cons</ColumnTitle>
-            {prosConsData.cons.map(con => (
-              <ReviewItem key={con.id}>
-                <ReviewHeader>
-                  <ReviewIcon src={minus} alt="Minus" />
-                  <ReviewText>{con.text}</ReviewText>
-                </ReviewHeader>
-                <ReviewAuthor>{con.author} - {con.date}</ReviewAuthor>
-              </ReviewItem>
-            ))}
-          </ConsContainer>
-        </ProsConsGrid>
-      </ProsConsSection>
-    </Container>
+      <ProsConsColumn>
+        <ColumnHeading>Cons</ColumnHeading>
+        {consData.map((item, index) => (
+          <ListItem key={index}>
+            <IconWrapper type="cons">-</IconWrapper>
+            <ItemContent>
+              <ItemText>{item.text}</ItemText>
+              <ItemAuthorDate>{item.author} - {item.date}</ItemAuthorDate>
+            </ItemContent>
+          </ListItem>
+        ))}
+      </ProsConsColumn>
+    </ProsConsContainer>
   );
 };
 

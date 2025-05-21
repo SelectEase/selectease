@@ -3,14 +3,16 @@ import styled from 'styled-components';
 
 // Common Styles
 const SectionContainer = styled.div`
+  width: 100%;
   background-color: #fff;
   border-radius: 10px;
-  padding: 25px;
+  padding: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   font-family: 'Outfit', sans-serif;
-  margin: 20px 100px 20px 100px;
+  margin: 20px;
+  
   @media (max-width: 768px) {
-    padding: 15px;
+    padding: 20px 15px;
   }
 `;
 
@@ -21,7 +23,6 @@ const SectionTitle = styled.h2`
   color: #333;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
-  text-align: center;
 `;
 
 // Software Reviews Styled Components
@@ -39,7 +40,7 @@ const ReviewList = styled.div`
 const ReviewItem = styled.div`
   padding-bottom: 30px;
   border-bottom: 1px solid #eee;
-
+  
   &:last-child {
     border-bottom: none;
     padding-bottom: 0;
@@ -48,12 +49,11 @@ const ReviewItem = styled.div`
 
 const ReviewHeader = styled.div`
   display: flex;
-  margin-bottom: 20px;
-  align-items: flex-start; /* Align items to the start */
-
+  margin-bottom: 15px;
+  
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
 `;
 
@@ -61,71 +61,71 @@ const AvatarSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 120px;
-  margin-right: 40px;
+  min-width: 130px;
   
   @media (max-width: 768px) {
     align-items: flex-start;
     flex-direction: row;
     gap: 15px;
-    margin-right: 0;
-    margin-bottom: 15px;
   }
 `;
 
 const Avatar = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   background-color: #1a3c70;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
-  margin-left: 120px;
   
   @media (max-width: 768px) {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
     margin-bottom: 0;
   }
 `;
 
 const UserInfo = styled.div`
-  text-align: right;
+  text-align: center;
+
+  
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 `;
 
 const UserName = styled.div`
   font-weight: 600;
   font-size: 16px;
-  margin-bottom: 5px;
-  color: #222;
+  margin-bottom: 2px;
 `;
 
 const BusinessType = styled.div`
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 2px;
 `;
 
 const UserType = styled.div`
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 2px;
 `;
 
 const UserSince = styled.div`
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
 `;
 
 const ReviewDate = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   color: #666;
 `;
 
@@ -136,27 +136,25 @@ const ReviewContent = styled.div`
 const RatingStars = styled.div`
   display: flex;
   color: #FFB800;
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 18px;
+  margin-bottom: 5px;
 `;
 
 const RatingText = styled.span`
   color: #666;
-  font-size: 13px;
+  font-size: 14px;
   margin-left: 5px;
 `;
 
 const ReviewQuote = styled.div`
-  font-size: 15px;
-  font-weight: normal;
-  margin-bottom: 20px;
-  line-height: 1.5;
-  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  line-height: 1.4;
 `;
 
 const ProsConsSection = styled.div`
   margin-bottom: 15px;
-  font-size: 13px;
 `;
 
 const ProsConsTitle = styled.span`
@@ -167,18 +165,19 @@ const ProsConsTitle = styled.span`
 
 const ProsConsText = styled.span`
   color: #666;
+  font-size: 15px;
   line-height: 1.5;
 `;
 
 const SwitchedFrom = styled.div`
   margin-top: 15px;
-  font-size: 13px;
+  font-size: 14px;
 `;
 
 const SwitchedLink = styled.a`
   color: #026283;
   text-decoration: none;
-
+  
   &:hover {
     text-decoration: underline;
   }
@@ -187,7 +186,7 @@ const SwitchedLink = styled.a`
 const RatingCategories = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
   margin-top: 20px;
   
   @media (max-width: 768px) {
@@ -198,10 +197,10 @@ const RatingCategories = styled.div`
 
 const RatingCategory = styled.div`
   flex: 1;
-  min-width: 200px;
+  min-width: 120px;
   border: 1px solid #eee;
   border-radius: 5px;
-  padding: 12px;
+  padding: 10px;
   
   @media (max-width: 576px) {
     min-width: 100%;
@@ -209,10 +208,8 @@ const RatingCategory = styled.div`
 `;
 
 const CategoryTitle = styled.div`
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 5px;
-  font-weight: 500;
-  color: #222;
 `;
 
 const CategoryRating = styled.div`
@@ -227,7 +224,7 @@ const CategoryStars = styled.div`
 `;
 
 const CategoryScore = styled.span`
-  font-size: 13px;
+  font-size: 14px;
   color: #666;
   margin-left: 5px;
 `;
@@ -238,7 +235,7 @@ const RecommendBar = styled.div`
   width: 100%;
   border-radius: 3px;
   position: relative;
-  margin-top: 8px;
+  margin-top: 5px;
 `;
 
 const RecommendFill = styled.div`
@@ -252,60 +249,48 @@ const RecommendFill = styled.div`
 `;
 
 // Pricing & Plans Styled Components
-const PricingPlansContainer = styled.div`
-  width:60%;
-  height: 614px;
+const PricingContainer = styled.div`
   display: flex;
-  gap: 30px;
-  margin-top: 30px;
-  justify-content: center;
-
+  gap: 20px;
+  margin-top: 20px;
+  
   @media (max-width: 992px) {
     flex-wrap: wrap;
   }
-
+  
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 30px;
   }
 `;
 
 const PricingCard = styled.div`
   flex: 1;
-  min-width: 300px;
-  height: auto;
+  min-width: 250px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  }
-
+  
   @media (max-width: 992px) {
-    min-width: calc(50% - 30px);
+    min-width: calc(50% - 20px);
   }
-
+  
   @media (max-width: 768px) {
     min-width: 100%;
   }
 `;
 
 const PricingHeader = styled.div`
-  padding: 20px 25px;
+  padding: 15px 20px;
   background-color: ${props => props.bgColor || '#FFB800'};
   color: white;
   font-weight: 600;
-  font-size: 20px;
-  text-align: center;
+  font-size: 18px;
 `;
 
 const PricingContent = styled.div`
-  padding: 25px;
+  padding: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -314,41 +299,38 @@ const PricingContent = styled.div`
 const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
   flex: 1;
 `;
 
 const FeatureItem = styled.li`
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
+  gap: 10px;
+  margin-bottom: 12px;
   font-size: 14px;
   color: #333;
 `;
 
 const FeatureIcon = styled.span`
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const PricingFooter = styled.div`
   margin-top: auto;
-  padding-top: 20px;
-  text-align: center;
 `;
 
 const PriceAmount = styled.div`
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #222;
+  margin-bottom: 5px;
 `;
 
 const BillingCycle = styled.div`
   font-size: 14px;
   color: #666;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 `;
 
 const BuyButton = styled.button`
@@ -356,51 +338,70 @@ const BuyButton = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 15px 30px;
-  font-size: 18px;
+  padding: 12px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   width: 100%;
-  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-
+  transition: opacity 0.2s;
+  
   &:hover {
     opacity: 0.9;
-    transform: translateY(-2px);
   }
 `;
 
 // Software Reviews Component
 const AmmplifySoftwareReviews = ({ reviews = [] }) => {
-  // Sample data based on the image
-    const reviewsData = [
-        {
-            id: 1,
-            initials: 'JD',
-            userName: 'John Doe',
-            businessType: 'Owner, Retail',
-            userType: 'Individual Contributor',
-            userSince: 'Software user since: 6-12 months',
-            reviewDate: 'Reviewed on: March 27, 2025',
-            rating: 5,
-            quote: '"QuickSmart AI has transformed our content creation process.  The quality and speed of output are impressive."',
-            pros: 'Easy to Use, Great Templates, Saves Time',
-            cons: 'Some features are still in development',
-            switchedFrom: null,
-            categories: [
-                { name: 'Features', rating: 5 },
-                { name: 'Value for money', rating: 4.5 },
-                { name: 'Customer Support', rating: 5 },
-                { name: 'Ease of Use', rating: 5 },
-                { name: 'Likely to Recommend', rating: 5, scale: 5 }
-            ]
-        }
-        // You can add more review objects here based on the image if there are multiple reviews
-    ];
+  // Sample data if none provided
+  const reviewsData = reviews.length > 0 ? reviews : [
+    {
+      id: 1,
+      initials: 'LH',
+      userName: 'Laksh Hardwares',
+      businessType: 'Owner, Retail',
+      userType: 'Individual',
+      userSince: 'User since: 6-12 months',
+      reviewDate: 'Reviewed on: Mar 16, 2020',
+      rating: 5,
+      quote: 'You can do all types of business transactions with Vyapaar. No need to carry any account books or managing manually ledgers.',
+      pros: 'Overall, Vyapar is a fine software that is always working towards improvising its features. Through the software, you can assess the stock value, stock quantity, profit, expenses, losses, etc. Vyapar also helps with easy filing of GSTR returns. The Vyapar team was also quite supportive with all notification related information for GST. Upload your products in Excel sheet easily with the software and divide these into proper categories.',
+      cons: 'Frankly speaking I don\'t think any least about this software. However, nothing is perfect and so one con would be the missing Multilanguage support. Banking integration too required. Currently, the development team is focused on resolving only one request at a time.',
+      switchedFrom: 'QuickBooks',
+      categories: [
+        { name: 'Features', rating: 5 },
+        { name: 'Value for Money', rating: 5 },
+        { name: 'Customer Support', rating: 5 },
+        { name: 'Ease of Use', rating: 5 },
+        { name: 'Likely to Recommend', rating: 10, scale: 10 }
+      ]
+    },
+    {
+      id: 2,
+      initials: 'LH',
+      userName: 'Laksh Hardwares',
+      businessType: 'Owner, Retail',
+      userType: 'Individual',
+      userSince: 'User since: 6-12 months',
+      reviewDate: 'Reviewed on: Mar 16, 2020',
+      rating: 5,
+      quote: 'You can do all types of business transactions with Vyapaar. No need to carry any account books or managing manually ledgers.',
+      pros: 'Overall, Vyapar is a fine software that is always working towards improvising its features. Through the software, you can assess the stock value, stock quantity, profit, expenses, losses, etc. Vyapar also helps with easy filing of GSTR returns. The Vyapar team was also quite supportive with all notification related information for GST. Upload your products in Excel sheet easily with the software and divide these into proper categories.',
+      cons: 'Frankly speaking I don\'t think any least about this software. However, nothing is perfect and so one con would be the missing Multilanguage support. Banking integration too required. Currently, the development team is focused on resolving only one request at a time.',
+      switchedFrom: 'QuickBooks',
+      categories: [
+        { name: 'Features', rating: 5 },
+        { name: 'Value for Money', rating: 5 },
+        { name: 'Customer Support', rating: 5 },
+        { name: 'Ease of Use', rating: 5 },
+        { name: 'Likely to Recommend', rating: 10, scale: 10 }
+      ]
+    }
+  ];
 
   // Render stars for rating
   const renderStars = (rating, scale = 5) => {
     return Array(scale).fill(0).map((_, index) => (
-      <span key={index}>{index < rating ? '\u2605' : '\u2606'}</span>
+      <span key={index}>{index < rating ? '★' : '☆'}</span>
     ));
   };
 
@@ -409,7 +410,7 @@ const AmmplifySoftwareReviews = ({ reviews = [] }) => {
       <SectionTitle>
         Software Reviews <ReviewsCount>({reviewsData.length})</ReviewsCount>
       </SectionTitle>
-
+      
       <ReviewList>
         {reviewsData.map(review => (
           <ReviewItem key={review.id}>
@@ -419,40 +420,34 @@ const AmmplifySoftwareReviews = ({ reviews = [] }) => {
                 <UserInfo>
                   <UserName>{review.userName}</UserName>
                   <BusinessType>{review.businessType}</BusinessType>
-                  {review.userType && <UserType>{review.userType}</UserType>}
-                  {review.userSince && <UserSince>{review.userSince}</UserSince>}
+                  <UserType>{review.userType}</UserType>
+                  <UserSince>{review.userSince}</UserSince>
                   <ReviewDate>{review.reviewDate}</ReviewDate>
                 </UserInfo>
               </AvatarSection>
-
+              
               <ReviewContent>
                 <RatingStars>
                   {renderStars(review.rating)}
                   <RatingText>{review.rating}/5</RatingText>
                 </RatingStars>
-
-                <ReviewQuote>{review.quote}</ReviewQuote>
-
-                {review.pros && (
-                  <ProsConsSection>
-                    <ProsConsTitle>Pros :</ProsConsTitle>
-                    <ProsConsText>{review.pros}</ProsConsText>
-                  </ProsConsSection>
-                )}
-
-                {review.cons && (
-                  <ProsConsSection>
-                    <ProsConsTitle>Cons :</ProsConsTitle>
-                    <ProsConsText>{review.cons}</ProsConsText>
-                  </ProsConsSection>
-                )}
-
-                {review.switchedFrom && (
-                  <SwitchedFrom>
-                    Switched from : <SwitchedLink href="#">{review.switchedFrom}</SwitchedLink>
-                  </SwitchedFrom>
-                )}
-
+                
+                <ReviewQuote>"{review.quote}"</ReviewQuote>
+                
+                <ProsConsSection>
+                  <ProsConsTitle>Pros :</ProsConsTitle>
+                  <ProsConsText>{review.pros}</ProsConsText>
+                </ProsConsSection>
+                
+                <ProsConsSection>
+                  <ProsConsTitle>Cons :</ProsConsTitle>
+                  <ProsConsText>{review.cons}</ProsConsText>
+                </ProsConsSection>
+                
+                <SwitchedFrom>
+                  Switched from : <SwitchedLink href="#">{review.switchedFrom}</SwitchedLink>
+                </SwitchedFrom>
+                
                 <RatingCategories>
                   {review.categories.map((category, index) => (
                     <RatingCategory key={index}>
@@ -465,7 +460,7 @@ const AmmplifySoftwareReviews = ({ reviews = [] }) => {
                           {category.rating}/{category.scale || 5}
                         </CategoryScore>
                       </CategoryRating>
-
+                      
                       {category.name === 'Likely to Recommend' && (
                         <RecommendBar>
                           <RecommendFill value={(category.rating / (category.scale || 5)) * 100} />
@@ -483,81 +478,101 @@ const AmmplifySoftwareReviews = ({ reviews = [] }) => {
   );
 };
 
-// Pricing & Plans Component (TEXT CONTENT UPDATED)
+// Pricing & Plans Component
 const PricingPlans = ({ plans = [] }) => {
-    // Sample data based on the image
-    const plansData = [
-        {
-            id: 1,
-            title: 'Standard',
-            color: '#FFB800',
-            features: [
-                'Free 7 days trail available',
-                'Available during beta phase',
-                'No hidden cost',
-                'Perfect for individual content creators',
-            ],
-            price: 999,
-            currency: '₹',
-            billing: 'Billed Monthly'
-        },
-        {
-            id: 2,
-            title: 'Pro',
-            color: '#38AD2F',
-            features: [
-                'Free Trail Available',
-                'Available during beta phase',
-                'No hidden cost',
-                'Ideal for small teams and businesses',
-            ],
-            price: null, // No price shown for Pro in the image
-            currency: null,
-            billing: 'Billed Monthly',
-        },
-    ];
+  // Sample data if none provided
+  const plansData = plans.length > 0 ? plans : [
+    {
+      id: 1,
+      title: 'Software Company Business',
+      color: '#FFB800',
+      features: [
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+      ],
+      price: 6800,
+      currency: '₹',
+      billing: 'Billed Annually'
+    },
+    {
+      id: 2,
+      title: 'Software Company Premiuim',
+      color: '#38AD2F',
+      features: [
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility'
+      ],
+      price: 9800,
+      currency: '₹',
+      billing: 'Billed Annually'
+    },
+    {
+      id: 3,
+      title: 'Software Company Organization',
+      color: '#026283',
+      features: [
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility',
+        'Cross-Platform Compatibility'
+      ],
+      price: 12800,
+      currency: '₹',
+      billing: 'Billed Annually'
+    }
+  ];
 
-    return (
-        <SectionContainer>
-            <SectionTitle>Pricing & Plans</SectionTitle>
-
-            <PricingPlansContainer>
-                {plansData.map(plan => (
-                    <PricingCard key={plan.id} style={{ height: 'auto' }}>
-                        <PricingHeader bgColor={plan.color}>
-                            {plan.title}
-                        </PricingHeader>
-
-                        <PricingContent>
-                            <FeatureList>
-                                {plan.features.map((feature, index) => (
-                                    <FeatureItem key={index}>
-                                        <FeatureIcon>●</FeatureIcon>
-                                        {feature}
-                                    </FeatureItem>
-                                ))}
-                            </FeatureList>
-
-                            <PricingFooter>
-                                 <PriceAmount>
-                                    {plan.price !== null ? (
-                                        <>
-                                            Starting at {plan.currency}
-                                            {plan.price.toLocaleString()}
-                                        </>
-                                    ) : (
-                                        'Request a quote'
-                                    )}
-                                </PriceAmount>
-                                {plan.price !== null && <BillingCycle>[{plan.billing}]</BillingCycle>}
-                                <BuyButton bgColor={plan.color}>BUY NOW</BuyButton>
-                            </PricingFooter>
-                        </PricingContent>
-                    </PricingCard>
+  return (
+    <SectionContainer>
+      <SectionTitle>Pricing & Plans</SectionTitle>
+      
+      <PricingContainer>
+        {plansData.map(plan => (
+          <PricingCard key={plan.id}>
+            <PricingHeader bgColor={plan.color}>
+              {plan.title}
+            </PricingHeader>
+            
+            <PricingContent>
+              <FeatureList>
+                {plan.features.map((feature, index) => (
+                  <FeatureItem key={index}>
+                    <FeatureIcon>●</FeatureIcon>
+                    {feature}
+                  </FeatureItem>
                 ))}
-            </PricingPlansContainer>
-        </SectionContainer>
-    );
+              </FeatureList>
+              
+              <PricingFooter>
+                <PriceAmount>Starting at {plan.currency} {plan.price.toLocaleString()}</PriceAmount>
+                <BillingCycle>[{plan.billing}]</BillingCycle>
+                <BuyButton bgColor={plan.color}>BUY NOW</BuyButton>
+              </PricingFooter>
+            </PricingContent>
+          </PricingCard>
+        ))}
+      </PricingContainer>
+    </SectionContainer>
+  );
 };
 
 // Main App Component to demonstrate usage

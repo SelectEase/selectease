@@ -1,158 +1,146 @@
-
 import React from 'react';
 import styled from 'styled-components';
-import plus from '../assets/plus.svg';
-import minus from '../assets/minus.svg';
 
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Outfit', sans-serif;
-`;
-
-const ProsConsSection = styled.div`
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-`;
-
-const ProsConsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const ProsColumn = styled.div``;
-
-const ConsColumn = styled.div``;
-
-const ColumnTitle = styled.h3`
-  font-size: 18px;
-  font-weight: 500;
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 16px;
-`;
-
-const ReviewItem = styled.div`
-  margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #eee;
-  
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-const ReviewHeader = styled.div`
+// Main container for the Pros and Cons section
+const ProsConsContainer = styled.div`
+  margin-top: 30px;
   display: flex;
-  margin-bottom: 8px;
+  flex-wrap: wrap; 
+  gap: 24px; 
+  justify-content: center; 
+  padding: 2rem; 
+  background-color: #fff; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+
+  @media (min-width: 768px) {
+    justify-content: space-between; 
+    
+  }
 `;
 
-const ReviewIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-right: 12px;
-  margin-top: 2px;
-`;
-
-const ReviewText = styled.p`
-  font-size: 14px;
-  line-height: 1.5;
-  color: #333;
-  margin: 0 0 8px 0;
-`;
-
-const ReviewAuthor = styled.div`
-  font-size: 12px;
-  color: #777;
-  margin-top: 8px;
-  margin-left: 32px;
-`;
-
-const mockProsConsData = {
-  pros: [
-    {
-      id: 1,
-      text: "Salesforce is an American cloud computing company head quartered in San Francisco, California.",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    },
-    {
-      id: 2,
-      text: "Salesforce is an American cloud computing company head quartered in San Francisco, California.",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    },
-    {
-      id: 3,
-      text: "Salesforce is an American cloud computing company head quartered in San Francisco, California.",
-      author: "Jane Doe",
-      date: "August 16, 2024"
+// Individual column for Pros or Cons
+const ProsConsColumn = styled.div`
+  flex: 1;
+  min-width: 300px; 
+  padding: 24px; 
+  background: #fff;
+  border-radius: 8px; 
+  
+  // Adding the right border for the first column (Pros)
+  &:first-child {
+    @media (min-width: 768px) {
+      border-right: 1px solid #e0e0e0;
+      padding-right: 36px; 
+      margin-right: 36px;
     }
+  }
+
+  
+  
+  @media (min-width: 768px) {
+    &:last-child {
+      padding-left: 0; 
+    }
+  }
+`;
+
+const ColumnHeading = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+  text-align: left; 
+`;
+
+const ListItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px; 
+  position: relative; 
+  &:last-child {
+    margin-bottom: 0; 
+  }
+`;
+
+const IconWrapper = styled.div`
+  flex-shrink: 0; 
+  width: 24px;
+  height: 24px;
+  border-radius: 6px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px; 
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff; // White icon color
+  background-color: ${props => (props.type === 'pros' ? '#FFC107' : '#dc3545')}; // Orange for pros, red for cons
+  border: 1px solid ${props => (props.type === 'pros' ? '#FFC107' : '#dc3545')}; // Matching border
+`;
+
+const ItemContent = styled.div`
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+`;
+
+const ItemText = styled.p`
+  font-size: 1rem;
+  color: #333;
+  margin: 0; 
+  line-height: 1.4; 
+`;
+
+const ItemAuthorDate = styled.span`
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 4px; 
+`;
+
+// Example data structure (you'll replace this with your actual props)
+const mockData = {
+  pros: [
+    { text: 'Strong automation capabilities', author: 'Jane Doe', date: 'August 16, 2024' },
+    { text: 'Easy integrations with major platforms', author: 'Jane Doe', date: 'August 16, 2024' },
+    { text: 'Real-time anomaly detection', author: 'Jane Doe', date: 'August 16, 2024' },
   ],
   cons: [
-    {
-      id: 1,
-      text: "Salesforce is an American cloud computing company head quartered in San Francisco, California.",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    },
-    {
-      id: 2,
-      text: "Salesforce is an American cloud computing company head quartered in San Francisco, California.",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    },
-    {
-      id: 3,
-      text: "Salesforce is an American cloud computing company head quartered in San Francisco, California.",
-      author: "Jane Doe",
-      date: "August 16, 2024"
-    }
-  ]
+    { text: 'Basic customization options', author: 'Jane Doe', date: 'August 16, 2024' },
+    { text: 'Less effective on smartphones', author: 'Jane Doe', date: 'August 16, 2024' },
+    { text: 'Limited advanced analytics', author: 'Jane Doe', date: 'August 16, 2024' },
+  ],
 };
 
-const QuickSmartSpecification = ({ prosConsData = mockProsConsData }) => {
+const  QuickSmartSpecification = ({ prosData = mockData.pros, consData = mockData.cons }) => {
   return (
-    <Container>
-      <ProsConsSection>
-        <ProsConsGrid>
-          <ProsColumn>
-            <ColumnTitle>Pros</ColumnTitle>
-            {prosConsData.pros.map(pro => (
-              <ReviewItem key={pro.id}>
-                <ReviewHeader>
-                  <ReviewIcon src={plus} alt="Plus" />
-                  <ReviewText>{pro.text}</ReviewText>
-                </ReviewHeader>
-                <ReviewAuthor>{pro.author} - {pro.date}</ReviewAuthor>
-              </ReviewItem>
-            ))}
-          </ProsColumn>
-          
-          <ConsColumn>
-            <ColumnTitle>Cons</ColumnTitle>
-            {prosConsData.cons.map(con => (
-              <ReviewItem key={con.id}>
-                <ReviewHeader>
-                  <ReviewIcon src={minus} alt="Minus" />
-                  <ReviewText>{con.text}</ReviewText>
-                </ReviewHeader>
-                <ReviewAuthor>{con.author} - {con.date}</ReviewAuthor>
-              </ReviewItem>
-            ))}
-          </ConsColumn>
-        </ProsConsGrid>
-      </ProsConsSection>
-    </Container>
+    <ProsConsContainer>
+      <ProsConsColumn>
+        <ColumnHeading>Pros</ColumnHeading>
+        {prosData.map((item, index) => (
+          <ListItem key={index}>
+            <IconWrapper type="pros">+</IconWrapper>
+            <ItemContent>
+              <ItemText>{item.text}</ItemText>
+              <ItemAuthorDate>{item.author} - {item.date}</ItemAuthorDate>
+            </ItemContent>
+          </ListItem>
+        ))}
+      </ProsConsColumn>
+
+      <ProsConsColumn>
+        <ColumnHeading>Cons</ColumnHeading>
+        {consData.map((item, index) => (
+          <ListItem key={index}>
+            <IconWrapper type="cons">-</IconWrapper>
+            <ItemContent>
+              <ItemText>{item.text}</ItemText>
+              <ItemAuthorDate>{item.author} - {item.date}</ItemAuthorDate>
+            </ItemContent>
+          </ListItem>
+        ))}
+      </ProsConsColumn>
+    </ProsConsContainer>
   );
 };
 
