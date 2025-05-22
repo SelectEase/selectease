@@ -265,6 +265,7 @@ const PricingContainer = styled.div`
 
 const PricingCard = styled.div`
   flex: 1;
+  height: 510px;
   min-width: 250px;
   border-radius: 10px;
   overflow: hidden;
@@ -480,64 +481,43 @@ const ZrikaSoftwareReviews  = ({ reviews = [] }) => {
 
 // Pricing & Plans Component
 const PricingPlans = ({ plans = [] }) => {
-  // Sample data if none provided
+  // Sample data updated to match the image image_076503.png
   const plansData = plans.length > 0 ? plans : [
     {
       id: 1,
-      title: 'Software Company Business',
-      color: '#FFB800',
+      title: 'Free',
+      color: '#FFB800', // Yellow
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
+        'Free Trail Available',
+        'Available during beta phase',
+        'No hidden cost',
       ],
-      price: 6800,
-      currency: '₹',
-      billing: 'Billed Annually'
+      priceDisplay: 'Starting at $0',
+      billing: 'Billed Monthly'
     },
     {
       id: 2,
-      title: 'Software Company Premiuim',
-      color: '#38AD2F',
+      title: 'Plus Plan', // Changed from Pro Plan
+      color: '#38AD2F', // Green
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility'
+        'Free Trail Available',
+        'Available during beta phase',
+        'No hidden cost'
       ],
-      price: 9800,
-      currency: '₹',
-      billing: 'Billed Annually'
+      priceDisplay: 'Starting at $28/month', // Changed price display
+      billing: 'or $336/year' // Changed billing cycle
     },
     {
       id: 3,
-      title: 'Software Company Organization',
-      color: '#026283',
+      title: 'Max Plan',
+      color: '#026283', // Dark Blue
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility'
+        'Free Trail Available',
+        'Available during beta phase',
+        'No hidden cost'
       ],
-      price: 12800,
-      currency: '₹',
-      billing: 'Billed Annually'
+      priceDisplay: 'Starting at $48/month', // Changed price display
+      billing: 'or $576/year' // Changed billing cycle
     }
   ];
 
@@ -556,14 +536,14 @@ const PricingPlans = ({ plans = [] }) => {
               <FeatureList>
                 {plan.features.map((feature, index) => (
                   <FeatureItem key={index}>
-                    <FeatureIcon>●</FeatureIcon>
+                    <FeatureIcon>●</FeatureIcon> {/* You can replace this with a checkmark icon if preferred */}
                     {feature}
                   </FeatureItem>
                 ))}
               </FeatureList>
               
               <PricingFooter>
-                <PriceAmount>Starting at {plan.currency} {plan.price.toLocaleString()}</PriceAmount>
+                <PriceAmount>{plan.priceDisplay}</PriceAmount>
                 <BillingCycle>[{plan.billing}]</BillingCycle>
                 <BuyButton bgColor={plan.color}>BUY NOW</BuyButton>
               </PricingFooter>

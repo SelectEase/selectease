@@ -74,6 +74,14 @@ const HeroSection = styled(motion.section)`
   padding: 40px 0 80px;
   position: relative;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 30px 0 60px; /* Adjust padding for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 0 40px; /* Further adjust for very small screens */
+  }
   
   .contact-hero-background {
     position: absolute;
@@ -103,12 +111,19 @@ const ContentWrapper = styled(motion.div)`
   position: relative;
   z-index: 2;
   overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    padding: 0 15px; /* Reduce padding for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 10px; /* Further reduce padding for very small screens */
+  }
 `;
 
 const Container = styled(motion.div)`
   width: 100%;
   overflow-x: hidden;
- 
 `;
 
 const Title = styled(motion.h1)`
@@ -122,13 +137,21 @@ const Title = styled(motion.h1)`
   color: black; 
   font-family: outfit;
 
-   
+  @media (max-width: 768px) {
+    font-size: 40px; /* Smaller font size for tablets */
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 30px; /* Even smaller font size for mobile phones */
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
 `;
 
 const BoldSpan = styled.span`
   font-weight: 700; 
 `;
-
 
 const SearchContainer = styled(motion.div)`
   display: flex;
@@ -141,6 +164,18 @@ const SearchContainer = styled(motion.div)`
   border: 1px solid #E5E7EB;
   overflow: visible;
   position: relative;
+
+  @media (max-width: 600px) {
+    flex-direction: column; /* Stack search input and button on small screens */
+    border-radius: 16px; /* Adjust border-radius for stacked elements */
+    max-width: 90%; /* Make it take more width on smaller screens */
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    width: 55%; /* Even wider on very small screens */
+    margin-bottom: 20px;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -158,6 +193,13 @@ const SearchInput = styled.input`
   
   &::placeholder {
     color: #111827;
+  }
+
+  @media (max-width: 600px) {
+    border-radius: 16px 16px 0 0; /* Adjust border-radius for stacked layout */
+    padding: 15px 20px; /* Adjust padding */
+    height: auto; /* Allow height to adjust */
+    width: 80%;
   }
 `;
 
@@ -185,6 +227,15 @@ const SearchButton = styled(motion.button)`
   &:hover {
     background: #005472; 
   }
+
+  @media (max-width: 600px) {
+    border-radius: 0 0 16px 16px; /* Adjust border-radius for stacked layout */
+    width: 100%; /* Make button full width */
+    padding: 15px 20px; /* Adjust padding */
+    display: flex;
+ 
+  
+  }
 `;
 
 const DropdownContainer = styled.div`
@@ -199,6 +250,20 @@ const DropdownContainer = styled.div`
   z-index: 100;
   padding: 20px;
   border: 1px solid #E5E7EB;
+
+  @media (max-width: 600px) {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%; /* Adjust width to fit mobile screens */
+    margin-top: 10px;
+    padding: 15px; /* Smaller padding */
+  }
+
+  @media (max-width: 480px) {
+    width: 100%; 
+    height:30%;
+    position: absolute;
+  }
 `;
 
 // const Section = styled.div`
@@ -220,6 +285,7 @@ const CategoryList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  
 `;
 
 const CategoryItem = styled.div`
@@ -352,13 +418,13 @@ const Dot = styled(motion.div)`
 //   justify-content: space-between; 
 // `;
 
-const CategorySliderTitle = styled.h2`
-  font-size: 32px;
-  color: #383B46;
-  margin-bottom: 20px;
-  margin-left:60px;
-  font-weight:400;
-`;
+// const CategorySliderTitle = styled.h2`
+//   font-size: 32px;
+//   color: #383B46;
+//   margin-bottom: 20px;
+//   margin-left:60px;
+//   font-weight:400;
+// `;
 
 // const CategorySliderContainer = styled.div`
 //   display: flex;
@@ -405,14 +471,18 @@ const Grid = styled(motion.div)`
   display: grid;
   grid-template-columns: ${props => props.columns};
   gap: ${props => props.gap || '24px'};
+  
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 16px; /* Slightly smaller gap */
   }
   @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; 
+    gap: 10px; 
+    padding: 0 15px; 
   }
 `;
 
@@ -420,7 +490,7 @@ const Card = styled(motion.div)`
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  color:#383B46;
+  color: #383B46;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
   border: 1px solid #E0E0E0; 
   transition: transform 0.2s;
@@ -429,27 +499,51 @@ const Card = styled(motion.div)`
   &:hover {
     transform: translateY(-4px);
   }
+
+  @media (max-width: 480px) {
+    border-radius: 10px; /* Slightly smaller radius for mobile */
+  }
 `;
 
 const CardImage = styled(motion.img)`
   width: 100%;
   height: 200px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    height: 180px; /* Slightly reduce height for tablets */
+  }
+
+  @media (max-width: 480px) {
+    height: 150px; /* Further reduce height for mobile */
+  }
 `;
 
 const CardContent = styled(motion.div)`
   padding: 20px;
+
   h3 {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 8px;
-    color:#383B46;
+    color: #383B46;
+
+    @media (max-width: 480px) {
+      font-size: 18px; /* Smaller heading for mobile */
+    }
   }
+
   p {
     font-size: 14px;
     color: #666;
     margin-bottom: 16px;
+
+    @media (max-width: 480px) {
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
   }
+
   a {
     color: #006B8F;
     text-decoration: none;
@@ -461,9 +555,14 @@ const CardContent = styled(motion.div)`
     &:hover {
       text-decoration: underline;
     }
-  }
+    @media (max-width: 480px) {
+      font-size: 13px;
+    }
+    }
+    @media (max-width: 480px) {
+    padding: 15px; 
+    }
 `;
-
 
 const UniqueDiscoveryContainer = styled(motion.div)`
   display: flex;
@@ -472,9 +571,14 @@ const UniqueDiscoveryContainer = styled(motion.div)`
   align-items: flex-start;
   
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column; 
     gap: 20px;
+    margin-top: 20px; 
+    padding: 0 20px;
+  }
 
+  @media (max-width: 480px) {
+    padding: 0 15px;
   }
 `;
 
@@ -482,12 +586,12 @@ const UniqueCategoryLists = styled.div`
   min-width: 220px;
   
   @media (max-width: 768px) {
-    min-width: 100%;
+    min-width: 100%; /* Take full width on tablets */
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow categories to wrap */
     gap: 10px;
     margin-bottom: 10px;
-   
+    justify-content: center; /* Center tabs when they wrap */
   }
   
   select {
@@ -504,6 +608,28 @@ const UniqueCategoryLists = styled.div`
     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     background-repeat: no-repeat;
     background-position: right 10px center;
+
+    @media (min-width: 769px) { /* Only show select on larger screens initially */
+      display: none;
+    }
+
+    @media (max-width: 768px) { /* Show select on smaller screens */
+      display: block;
+      margin-bottom: 15px; /* Add space below select when visible */
+      max-width: 300px; /* Limit width of select on tablets */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 480px) {
+      max-width: 90%; /* Adjust width for mobile */
+    }
+  }
+
+  /* Hide individual tabs when select is shown */
+  & > div { /* Target UniqueCategoryTab directly */
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
@@ -525,13 +651,20 @@ const UniqueCategoryTab = styled.div`
   }
   
   @media (max-width: 768px) {
-    margin-bottom: 0;
-    font-size: 0.9rem;
-    padding: 8px 16px;
-    
+    margin-bottom: 0; 
+    font-size: 0.9rem; 
+    padding: 8px 16px; 
+    border-radius: 20px;
+
     &:hover {
-      transform: translateY(-2px);
+      transform: none; 
+      transform: translateY(-2px); 
     }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem; 
+    padding: 6px 12px; 
   }
 `;
 
@@ -539,16 +672,28 @@ const UniqueSoftwareGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  flex: 1;
+  flex: 1; 
   
   @media (max-width: 992px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 16px;
   }
   
   @media (max-width: 576px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
     gap: 12px;
-    margin-left: 50px;
+    margin-left: 0; 
+    justify-content: center; 
+  }
+
+  @media (max-width: 400px) { 
+    grid-template-columns: 1fr; 
+    gap: 10px;
   }
 `;
 
@@ -589,7 +734,13 @@ const UniqueSoftwareIcon = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensure the image fits well inside the circular container */
+    object-fit: contain;
+  }
+
+  @media (max-width: 576px) {
+    width: 50px; /* Smaller icon for mobile cards */
+    height: 50px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -608,20 +759,33 @@ const UniqueRatingBadge = styled.span`
   font-size: 0.85rem;
   margin-right: 6px;
   font-weight: 600;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem; 
+    padding: 1px 6px;
+    margin-right: 4px;
+  }
 `;
 
 const UniqueReviewCount = styled.span`
   font-size: 0.85rem;
   color: #666;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem; 
+  }
 `;
 
 const UniqueSoftwareName = styled.div`
   font-size: 0.9rem;
   font-weight: 500;
   color: #333;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem; 
+  }
 `;
 
-// Update UniqueContentWrapper to have max-width and center alignment
 const UniqueContentWrapper = styled(motion.div)`
   background-color: white;
   padding: 15px 40px;
@@ -630,10 +794,15 @@ const UniqueContentWrapper = styled(motion.div)`
   
   @media (max-width: 768px) {
     padding: 15px 20px;
+    margin: 10px auto; 
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 15px; 
+    margin: 8px auto; 
   }
 `;
 
-// Update UniqueSectionTitle to match ProductsTitle styling
 const UniqueSectionTitle = styled(motion.h2)`
   font-size: 28px;
   font-weight: 500;
@@ -644,6 +813,12 @@ const UniqueSectionTitle = styled(motion.h2)`
   @media (max-width: 768px) {
     font-size: 22px;
     margin-bottom: 16px;
+    text-align: center; 
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+    margin-bottom: 12px;
   }
 `;
 
@@ -666,6 +841,23 @@ const ReviewsWrapper = styled(motion.section)`
     opacity: 0.1;
     pointer-events: none;
   }
+
+  @media (max-width: 768px) {
+    padding: 30px 0; /* Reduce padding for tablets */
+    margin: 10px 0; /* Adjust margin */
+    &:after {
+      background-size: 50%; /* Make background image smaller on tablets */
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 0; /* Further reduce padding for mobile */
+    margin: 8px 0; /* Further adjust margin */
+    &:after {
+      background-size: 60%; /* Adjust size for mobile */
+      background-position: center bottom; /* Center image on mobile */
+    }
+  }
 `;
 
 const ReviewHeading = styled(motion.div)`
@@ -676,7 +868,15 @@ const ReviewHeading = styled(motion.div)`
   gap: 24px;
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column; /* Stack heading elements on tablets and smaller */
+    margin-bottom: 30px;
+    gap: 15px;
+    padding: 0 20px; /* Add horizontal padding for safety */
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 20px;
+    padding: 0 15px; /* Further adjust padding for mobile */
   }
 `;
 
@@ -2165,7 +2365,7 @@ const Home = () => {
     { id: '1', color: '#FFB347', name: 'Napkin.ai', rating: '5.0', reviews: 144,  image:napkinlogo2, path: '/napkin-review' },
     { id: '2', color: '#FFB347', name: 'Caption.ai', rating: '5.0', reviews: 144, image: caption, path: '/caption-review' },
     { id: '3', color: '#779ECB', name: 'Invideo.ai', rating: '5.0', reviews: 144, image: invideo, path: '/invideo-review' },
-    { id: '4', color: '#FF6961', name: 'Ammplify.ai', rating: '5.0', reviews: 144, image: amplify, path: '/ammplify-review' },
+    { id: '4', color: '#FF6961', name: 'Ammplify.ai', rating: '5.0', reviews: 144, image: amplify, path: '/ammlify-review' },
     { id: '5', color: '#FFD700', name: 'Quicksmart.ai', rating: '5.0', reviews: 144, image: quick, path: '/quick-smart-review' },
     { id: '6', color: '#B19CD9', name: 'Scogo.ai', rating: '5.0', reviews: 144,  image : scogologo, path: '/scogo-review' },
     { id: '7', color: '#B19CD9', name: 'Lowtouch.ai', rating: '5.0', reviews: 144, image: lowtouch, path: '/lowtouch-review'},

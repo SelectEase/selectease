@@ -250,7 +250,7 @@ const RecommendFill = styled.div`
 
 // Pricing & Plans Styled Components
 const PricingContainer = styled.div`
-  display: flex;
+  
   gap: 20px;
   margin-top: 20px;
   
@@ -264,8 +264,8 @@ const PricingContainer = styled.div`
 `;
 
 const PricingCard = styled.div`
-  flex: 1;
-  min-width: 250px;
+  height:514px;
+  width: 310px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -484,61 +484,17 @@ const PricingPlans = ({ plans = [] }) => {
   const plansData = plans.length > 0 ? plans : [
     {
       id: 1,
-      title: 'Software Company Business',
+      title: 'Subscription with freemium model.',
       color: '#FFB800',
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
+        'Available with basic features.',
+        'Free Trail Available.',
+        
       ],
       price: 6800,
       currency: '₹',
       billing: 'Billed Annually'
     },
-    {
-      id: 2,
-      title: 'Software Company Premiuim',
-      color: '#38AD2F',
-      features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility'
-      ],
-      price: 9800,
-      currency: '₹',
-      billing: 'Billed Annually'
-    },
-    {
-      id: 3,
-      title: 'Software Company Organization',
-      color: '#026283',
-      features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility'
-      ],
-      price: 12800,
-      currency: '₹',
-      billing: 'Billed Annually'
-    }
   ];
 
   return (

@@ -264,8 +264,8 @@ const PricingContainer = styled.div`
 `;
 
 const PricingCard = styled.div`
-  flex: 1;
-  min-width: 250px;
+  height: 510px;
+  min-width: 314px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -480,65 +480,33 @@ const AmmplifySoftwareReviews = ({ reviews = [] }) => {
 
 // Pricing & Plans Component
 const PricingPlans = ({ plans = [] }) => {
-  // Sample data if none provided
+  // Sample data updated to match the image
   const plansData = plans.length > 0 ? plans : [
     {
       id: 1,
-      title: 'Software Company Business',
-      color: '#FFB800',
+      title: 'Standard',
+      color: '#FFB800', // Yellow
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
+        'Free 7 days trail available',
+        'Available during beta phase',
+        'No hidden cost',
+        'Perfect for individual content creators',
       ],
-      price: 6800,
-      currency: '₹',
-      billing: 'Billed Annually'
+      priceDisplay: 'Starting at ₹ 999',
+      billing: 'Billed Monthly'
     },
     {
       id: 2,
-      title: 'Software Company Premiuim',
-      color: '#38AD2F',
+      title: 'Pro',
+      color: '#38AD2F', // Green
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility'
+        'Free Trail Available',
+        'Available during beta phase',
+        'No hidden cost'
       ],
-      price: 9800,
-      currency: '₹',
-      billing: 'Billed Annually'
+      priceDisplay: 'Starting at ₹ 1999',
+      billing: 'Billed Monthly'
     },
-    {
-      id: 3,
-      title: 'Software Company Organization',
-      color: '#026283',
-      features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility'
-      ],
-      price: 12800,
-      currency: '₹',
-      billing: 'Billed Annually'
-    }
   ];
 
   return (
@@ -563,7 +531,7 @@ const PricingPlans = ({ plans = [] }) => {
               </FeatureList>
               
               <PricingFooter>
-                <PriceAmount>Starting at {plan.currency} {plan.price.toLocaleString()}</PriceAmount>
+                <PriceAmount>{plan.priceDisplay}</PriceAmount>
                 <BillingCycle>[{plan.billing}]</BillingCycle>
                 <BuyButton bgColor={plan.color}>BUY NOW</BuyButton>
               </PricingFooter>

@@ -265,6 +265,7 @@ const PricingContainer = styled.div`
 
 const PricingCard = styled.div`
   flex: 1;
+  height: 510px;
   min-width: 250px;
   border-radius: 10px;
   overflow: hidden;
@@ -484,59 +485,44 @@ const PricingPlans = ({ plans = [] }) => {
   const plansData = plans.length > 0 ? plans : [
     {
       id: 1,
-      title: 'Software Company Business',
+      title: 'Beta Monthly Plan',
       color: '#FFB800',
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
+        'Free Trail Available',
+        'Available during beta phase',
+        'No hidden cost',
+        
       ],
-      price: 6800,
-      currency: '₹',
+      price: 10,
+      currency: '$',
       billing: 'Billed Annually'
     },
     {
       id: 2,
-      title: 'Software Company Premiuim',
+      title: 'Beta Yearly Plan',
       color: '#38AD2F',
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility'
+       'Free Trail Available',
+        'Available during beta phase',
+        'No hidden cost',
+        
       ],
-      price: 9800,
-      currency: '₹',
+     price: 100,
+      currency: '$',
       billing: 'Billed Annually'
     },
     {
       id: 3,
-      title: 'Software Company Organization',
+      title: 'Lifetime Plan',
       color: '#026283',
       features: [
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility',
-        'Cross-Platform Compatibility'
+       'Free Trail Available',
+        'Available during beta phase',
+        'No hidden cost',
+        
       ],
-      price: 12800,
-      currency: '₹',
+      price: 300,
+      currency: '$',
       billing: 'Billed Annually'
     }
   ];
