@@ -8,12 +8,12 @@ import CaptionSoftwareReviews from './CaptionSoftwareReviews';
 import CaptionGetSoftwareCompanyDemo from './CaptionGetSoftwareCompanyDemo';
 import CaptionDropdown from './CaptionDropdown';
 
-// import Caption1 from './src/assets/Caption1.png';
-// import Caption2 from './src/assets/Caption2.png';
-// import Caption3 from './src/assets/Caption3.png';
-// import Caption4 from './src/assets/Caption4.png';
-// import Caption5 from './src/assets/Caption5.png'; 
-// Animations
+import Caption1 from '../assets/Caption1.png';
+import Caption2 from '../assets/Caption2.png';
+import Caption3 from '../assets/Caption3.png';
+import Caption4 from '../assets/Caption4.png';
+import Caption5 from '../assets/Caption5.png';
+
 // Animations
 const fadeIn = keyframes`
   from {
@@ -27,7 +27,7 @@ const fadeIn = keyframes`
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-padding: 50px 25px;
+  padding: 50px 25px;
 `;
 
 const PageContainer = styled.div`
@@ -45,17 +45,17 @@ const ProductCard = styled.div`
   border-radius: 8px;
   margin-bottom: 30px;
   background-color: #fff;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
 const ImageSection = styled.div`
-  width: 300px;
+  width: 300px; /* Fixed width for the image section */
   margin-right: 30px;
   position: relative;
-  
+
   @media (max-width: 768px) {
     width: 100%;
     margin-right: 0px;
@@ -64,23 +64,22 @@ const ImageSection = styled.div`
 `;
 
 const MainImageSlider = styled.div`
-  width: 300px;
-  height: 250px;
-  background-color: #000;
+  width: 300px; /* Explicit width */
+  height: 250px; /* Explicit height */
+  background-color: #000; /* Background to show "letterboxing" if object-fit: contain is used */
   border-radius: 8px;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  color: #777;
-  overflow: hidden;
+  overflow: hidden; /* Crucial to clip overflowing parts if any */
   position: relative;
-  
+
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%; /* Ensure image doesn't exceed slider width */
+    max-height: 100%; /* Ensure image doesn't exceed slider height */
+    object-fit: contain; /* Scales the image down to fit within the container, preserving aspect ratio */
+    /* If you want the image to fill the space and be cropped, you can use object-fit: cover; */
   }
 `;
 
@@ -100,8 +99,9 @@ const SliderArrow = styled.button`
   color: #333;
   cursor: pointer;
   z-index: 10;
-  
-  
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added subtle shadow for depth */
+
+
   &:hover {
     background: rgba(250, 250, 250, 0.95);
     color: #026283;
@@ -109,11 +109,11 @@ const SliderArrow = styled.button`
 `;
 
 const LeftArrow = styled(SliderArrow)`
-  left: -4px;
+  left: 10px; /* Adjusted to be inside the slider, with some padding */
 `;
 
 const RightArrow = styled(SliderArrow)`
-  right: -4px;
+  right: 10px; /* Adjusted to be inside the slider, with some padding */
 `;
 
 const PlayButton = styled.button`
@@ -121,10 +121,11 @@ const PlayButton = styled.button`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
   border: none;
   width: 60px;
   height: 60px;
+  border-radius: 50%; /* Make it perfectly round */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,9 +134,10 @@ const PlayButton = styled.button`
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s ease;
-  
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* More pronounced shadow for play button */
+
   &:hover {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 1); /* Fully opaque on hover */
     color: #026283;
   }
 `;
@@ -145,15 +147,15 @@ const ImageThumbnails = styled.div`
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 5px;
-  
+
   &::-webkit-scrollbar {
     height: 3px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: #ddd;
     border-radius: 10px;
@@ -173,11 +175,11 @@ const Thumbnail = styled.div`
   color: #777;
   overflow: hidden;
   border: ${props => props.active ? '2px solid #026283' : '1px solid #ddd'};
-  
+
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 'cover' is often good for thumbnails to fill the space */
   }
 `;
 
@@ -197,7 +199,7 @@ const HeaderSection = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -574,11 +576,11 @@ const mockProductData = {
     pricing: "₹ 9999",
     description: "An AI-powered automation platform that streamlines workflows, enhances decision-making, and reduces operational errors for businesses.",
     images: [
-      { id: 1, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
+      { id: 1, url: Caption1, alt: "caption",thumbnail: Caption1 },
+      { id: 2, url: Caption2, alt: "Caption",thumbnail: Caption2 },
+      { id: 3, url: Caption3, alt: "Caption",thumbnail: Caption3 },
+      { id: 4, url: Caption4, alt: "Caption" ,thumbnail: Caption4},
+      { id: 5, url: Caption5, alt: "Caption" ,thumbnail: Caption5}
     ],
     overview: {
       softwareOverview: "Captions.ai is an AI-powered creative studio offering advanced video editing and content creation tools that automate workflows, enhance user engagement, and support multilingual content.",
@@ -605,7 +607,7 @@ const CaptionReview = ({ product = mockProductData }) => {
     captionspecifications: false,
     captionsoftwareReviews: false,
     captionsoftwareDemo: false,
-    CaptionDropdwon: false
+    captionDropdown: false // Corrected property name for consistency
   });
 
   // Simulate initial loading
@@ -614,7 +616,7 @@ const CaptionReview = ({ product = mockProductData }) => {
       setLoading(false);
       setSectionsVisible(prev => ({...prev, mainContent: true}));
     }, 2000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -623,36 +625,37 @@ const CaptionReview = ({ product = mockProductData }) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
-      // Show components sequentially based on scroll position  
-      if (scrollPosition > 0.2 * documentHeight && !sectionsVisible.CaptionFeature) {
-        setSectionsVisible(prev => ({...prev, CaptionFeature: true}));
+
+      // Show components sequentially based on scroll position
+      if (scrollPosition > 0.2 * documentHeight && !sectionsVisible.captionFeature) {
+        setSectionsVisible(prev => ({...prev, captionFeature: true}));
       }
-      
-      if (scrollPosition > 0.3 * documentHeight && !sectionsVisible.CaptionRating) {
-        setSectionsVisible(prev => ({...prev, CaptionRating: true}));
+
+      if (scrollPosition > 0.3 * documentHeight && !sectionsVisible.captionRating) {
+        setSectionsVisible(prev => ({...prev, captionRating: true}));
       }
-      
-      if (scrollPosition > 0.4 * documentHeight && !sectionsVisible.CaptionSpecifications) {
-        setSectionsVisible(prev => ({...prev, CaptionSpecifications: true}));
+
+      if (scrollPosition > 0.4 * documentHeight && !sectionsVisible.captionspecifications) {
+        setSectionsVisible(prev => ({...prev, captionspecifications: true}));
       }
-      
-      if (scrollPosition > 0.5 * documentHeight && !sectionsVisible.CaptionSoftwareReviews) {
-        setSectionsVisible(prev => ({...prev, CaptionSoftwareReviews: true}));
+
+      if (scrollPosition > 0.5 * documentHeight && !sectionsVisible.captionsoftwareReviews) {
+        setSectionsVisible(prev => ({...prev, captionsoftwareReviews: true}));
       }
-      
-      if (scrollPosition > 0.6 * documentHeight && !sectionsVisible.CaptionGetSoftwareDemo) {
-        setSectionsVisible(prev => ({...prev, CaptionGetSoftwareDemo: true}));
+
+      if (scrollPosition > 0.6 * documentHeight && !sectionsVisible.captionsoftwareDemo) {
+        setSectionsVisible(prev => ({...prev, captionsoftwareDemo: true}));
       }
-      
-      if (scrollPosition > 0.7 * documentHeight && !sectionsVisible.CaptionDropdwon) {
-        setSectionsVisible(prev => ({...prev, CaptionDropdwon: true}));
+
+      if (scrollPosition > 0.7 * documentHeight && !sectionsVisible.captionDropdown) {
+        setSectionsVisible(prev => ({...prev, captionDropdown: true}));
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionsVisible]);
+
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
@@ -679,7 +682,7 @@ const CaptionReview = ({ product = mockProductData }) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
-    
+
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
         stars.push(<StarIcon key={i} />);
@@ -689,7 +692,7 @@ const CaptionReview = ({ product = mockProductData }) => {
         stars.push(<StarIcon key={i} style={{ opacity: 0.2 }} />);
       }
     }
-    
+
     return stars;
   };
 
@@ -717,7 +720,7 @@ const CaptionReview = ({ product = mockProductData }) => {
 
   return (
     <Container>
-     
+
           {sectionsVisible.mainContent && (
             <PageContainer>
               <ProductCard>
@@ -726,13 +729,13 @@ const CaptionReview = ({ product = mockProductData }) => {
                     <LeftArrow onClick={goToPreviousImage}>
                       <FaChevronLeft />
                     </LeftArrow>
-                    <img 
-                      src={product.images[currentImageIndex].url} 
-                      alt={product.images[currentImageIndex].alt} 
+                    <img
+                      src={product.images[currentImageIndex].url}
+                      alt={product.images[currentImageIndex].alt}
                     />
-                    <PlayButton>
+                    {/* <PlayButton>
                       <FaPlay />
-                    </PlayButton>
+                    </PlayButton> */}
                     <RightArrow onClick={goToNextImage}>
                       <FaChevronRight />
                     </RightArrow>
@@ -759,58 +762,57 @@ const CaptionReview = ({ product = mockProductData }) => {
                       </Rating>
                       <WriteReview href="#">Write a Review</WriteReview>
                     </TitleSection>
-                    
                   </HeaderSection>
-                  
+
                   <PricingSection>
                     <PricingLabel>Starting At</PricingLabel>
                     <Pricing>{product.pricing}</Pricing>
                   </PricingSection>
-                  
+
                   <Description>{product.description}</Description>
                   <CallToAction>Get Free Demo</CallToAction>
                 </InfoSection>
               </ProductCard>
 
               <TabsContainer>
-                <Tab 
-                  active={activeTab === 'Overview'} 
+                <Tab
+                  active={activeTab === 'Overview'}
                   onClick={() => handleTabClick('Overview')}
                 >
                   Overview
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Features'} 
+                <Tab
+                  active={activeTab === 'Features'}
                   onClick={() => handleTabClick('Features')}
                 >
                   Features
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Reviews'} 
+                <Tab
+                  active={activeTab === 'Reviews'}
                   onClick={() => handleTabClick('Reviews')}
                 >
                   Reviews
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Pricing & Plans'} 
+                <Tab
+                  active={activeTab === 'Pricing & Plans'}
                   onClick={() => handleTabClick('Pricing & Plans')}
                 >
                   Pricing & Plans
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Specifications'} 
+                <Tab
+                  active={activeTab === 'Specifications'}
                   onClick={() => handleTabClick('Specifications')}
                 >
                   Specifications
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Compare'} 
+                <Tab
+                  active={activeTab === 'Compare'}
                   onClick={() => handleTabClick('Compare')}
                 >
                   Compare
                 </Tab>
-                <Tab 
-                  active={activeTab === "FAQ's"} 
+                <Tab
+                  active={activeTab === "FAQ's"}
                   onClick={() => handleTabClick("FAQ's")}
                 >
                   FAQ's
@@ -822,14 +824,15 @@ const CaptionReview = ({ product = mockProductData }) => {
               </ContentSection>
             </PageContainer>
           )}
-          
-          {sectionsVisible.CaptionFeature && <CaptionFeature />}
-          {sectionsVisible.CaptionRating && <CaptionRating />}
-          {sectionsVisible.CaptionSpecifications && <CaptionSpecification />}
-          {sectionsVisible.CaptionSoftwareReviews && <CaptionSoftwareReviews />}
-          {sectionsVisible.CaptionGetSoftwareCompanyDemo && <CaptionGetSoftwareCompanyDemo />}
-          {sectionsVisible.CaptionDropdwon && <CaptionDropdown />}
-        
+
+          {/* Conditional rendering for other sections */}
+          {sectionsVisible.captionFeature && <CaptionFeature />}
+          {sectionsVisible.captionRating && <CaptionRating />}
+          {sectionsVisible.captionspecifications && <CaptionSpecification />}
+          {sectionsVisible.captionsoftwareReviews && <CaptionSoftwareReviews />}
+          {sectionsVisible.captionsoftwareDemo && <CaptionGetSoftwareCompanyDemo />}
+          {sectionsVisible.captionDropdown && <CaptionDropdown />}
+
     </Container>
   );
 };

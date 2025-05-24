@@ -7,11 +7,12 @@ import HiavaSpecification from './HiavaSpecification';
 import HiavaSoftwareReviews from './HiavaSoftwareReviews';
 import HiavaGetSoftwareCompanyDemo from './HiavaGetSoftwareCompanyDemo';
 import HiavaDropdwon from './HiavaDropdown';
-// import image52 from '../src/assets/image52.png';
-// import image53 from './src/assets/image53.png';
-// import image54 from './src/assets/image54.png';
-// import image55 from './src/assets/image55.png';
-// import image56 from './src/assets/image56.png'; 
+import hiava1 from '../assets/hiava1.png';
+import hiava2 from '../assets/hiava2.png';
+import hiava3 from '../assets/hiava3.png';
+import hiava4 from '../assets/hiava4.png';
+import hiava5 from '../assets/hiava5.png';
+
 // Animations
 const fadeIn = keyframes`
   from {
@@ -43,17 +44,17 @@ const ProductCard = styled.div`
   border-radius: 8px;
   margin-bottom: 30px;
   background-color: #fff;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
 const ImageSection = styled.div`
-  width: 300px;
+  width: 300px; /* Fixed width for the image section */
   margin-right: 30px;
   position: relative;
-  
+
   @media (max-width: 768px) {
     width: 100%;
     margin-right: 0px;
@@ -62,23 +63,22 @@ const ImageSection = styled.div`
 `;
 
 const MainImageSlider = styled.div`
-  width: 300px;
-  height: 250px;
-  background-color: #000;
+  width: 300px; /* Explicit width */
+  height: 250px; /* Explicit height */
+  background-color: #000; /* Background to show "letterboxing" if object-fit: contain is used */
   border-radius: 8px;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  color: #777;
-  overflow: hidden;
+  overflow: hidden; /* Crucial to clip overflowing parts if any */
   position: relative;
-  
+
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%; /* Ensure image doesn't exceed slider width */
+    max-height: 100%; /* Ensure image doesn't exceed slider height */
+    object-fit: contain; /* Scales the image down to fit within the container, preserving aspect ratio */
+    /* If you want the image to fill the space and be cropped, use object-fit: cover; */
   }
 `;
 
@@ -98,8 +98,8 @@ const SliderArrow = styled.button`
   color: #333;
   cursor: pointer;
   z-index: 10;
-  
-  
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added subtle shadow for depth */
+
   &:hover {
     background: rgba(250, 250, 250, 0.95);
     color: #026283;
@@ -107,11 +107,11 @@ const SliderArrow = styled.button`
 `;
 
 const LeftArrow = styled(SliderArrow)`
-  left: -4px;
+  left: 10px; /* Adjusted to be inside the slider, with some padding */
 `;
 
 const RightArrow = styled(SliderArrow)`
-  right: -4px;
+  right: 10px; /* Adjusted to be inside the slider, with some padding */
 `;
 
 const PlayButton = styled.button`
@@ -119,10 +119,11 @@ const PlayButton = styled.button`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
   border: none;
   width: 60px;
   height: 60px;
+  border-radius: 50%; /* Make it perfectly round */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,9 +132,10 @@ const PlayButton = styled.button`
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s ease;
-  
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* More pronounced shadow for play button */
+
   &:hover {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 1); /* Fully opaque on hover */
     color: #026283;
   }
 `;
@@ -143,15 +145,15 @@ const ImageThumbnails = styled.div`
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 5px;
-  
+
   &::-webkit-scrollbar {
     height: 3px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: #ddd;
     border-radius: 10px;
@@ -171,11 +173,11 @@ const Thumbnail = styled.div`
   color: #777;
   overflow: hidden;
   border: ${props => props.active ? '2px solid #026283' : '1px solid #ddd'};
-  
+
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 'cover' is often good for thumbnails to fill the space */
   }
 `;
 
@@ -195,7 +197,7 @@ const HeaderSection = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -571,11 +573,11 @@ const mockProductData = {
     pricing: "₹ 9999",
     description: "An AI-powered automation platform that streamlines workflows, enhances decision-making, and reduces operational errors for businesses.",
     images: [
-      { id: 1, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
+      { id: 1, url: hiava1, alt: "hiava1",thumbnail: hiava1  },
+      { id: 2, url: hiava2, alt: "hiava1",thumbnail: hiava2  },
+      { id: 3, url: hiava3, alt: "hiava1",thumbnail: hiava3  },
+      { id: 4, url: hiava4, alt: "hiava1",thumbnail: hiava4  },
+      { id: 5, url: hiava5, alt: "hiava1",thumbnail: hiava5  },
     ],
     overview: {
       softwareOverview: " Ava is an AI-powered writing assistant designed to help users create their first drafts quickly, enhancing productivity by streamlining the writing process",
@@ -597,12 +599,12 @@ const HiavaReaview = ({ product = mockProductData }) => {
   const [loading, setLoading] = useState(true);
   const [sectionsVisible, setSectionsVisible] = useState({
     mainContent: false,
-    quickFeature: false,
-    quickRating: false,
-    quickspecifications: false,
-    quicksoftwareReviews: false,
-    softwareDemo: false,
-    dropdown: false
+    HiavaFeature: false, // Corrected property name
+    HiavaRating: false, // Corrected property name
+    HiavaSpecifications: false, // Corrected property name
+    HiavaSoftwareReviews: false, // Corrected property name
+    HiavaGetSoftwareCompanyDemo: false, // Corrected property name
+    HiavaDropdwon: false // Corrected property name
   });
 
   // Simulate initial loading
@@ -611,7 +613,7 @@ const HiavaReaview = ({ product = mockProductData }) => {
       setLoading(false);
       setSectionsVisible(prev => ({...prev, mainContent: true}));
     }, 2000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -620,33 +622,33 @@ const HiavaReaview = ({ product = mockProductData }) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
-      // Show components sequentially based on scroll position  
+
+      // Show components sequentially based on scroll position
       if (scrollPosition > 0.2 * documentHeight && !sectionsVisible.HiavaFeature) {
         setSectionsVisible(prev => ({...prev, HiavaFeature: true}));
       }
-      
+
       if (scrollPosition > 0.3 * documentHeight && !sectionsVisible.HiavaRating) {
         setSectionsVisible(prev => ({...prev, HiavaRating: true}));
       }
-      
+
       if (scrollPosition > 0.4 * documentHeight && !sectionsVisible.HiavaSpecifications) {
         setSectionsVisible(prev => ({...prev, HiavaSpecifications: true}));
       }
-      
+
       if (scrollPosition > 0.5 * documentHeight && !sectionsVisible.HiavaSoftwareReviews) {
         setSectionsVisible(prev => ({...prev, HiavaSoftwareReviews: true}));
       }
-      
+
       if (scrollPosition > 0.6 * documentHeight && !sectionsVisible.HiavaGetSoftwareCompanyDemo) {
         setSectionsVisible(prev => ({...prev, HiavaGetSoftwareCompanyDemo: true}));
       }
-      
+
       if (scrollPosition > 0.7 * documentHeight && !sectionsVisible.HiavaDropdwon) {
         setSectionsVisible(prev => ({...prev, HiavaDropdwon: true}));
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionsVisible]);
@@ -676,7 +678,7 @@ const HiavaReaview = ({ product = mockProductData }) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
-    
+
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
         stars.push(<StarIcon key={i} />);
@@ -686,7 +688,7 @@ const HiavaReaview = ({ product = mockProductData }) => {
         stars.push(<StarIcon key={i} style={{ opacity: 0.2 }} />);
       }
     }
-    
+
     return stars;
   };
 
@@ -714,7 +716,7 @@ const HiavaReaview = ({ product = mockProductData }) => {
 
   return (
     <Container>
-      
+
           {sectionsVisible.mainContent && (
             <PageContainer>
               <ProductCard>
@@ -723,13 +725,13 @@ const HiavaReaview = ({ product = mockProductData }) => {
                     <LeftArrow onClick={goToPreviousImage}>
                       <FaChevronLeft />
                     </LeftArrow>
-                    <img 
-                      src={product.images[currentImageIndex].url} 
-                      alt={product.images[currentImageIndex].alt} 
+                    <img
+                      src={product.images[currentImageIndex].url}
+                      alt={product.images[currentImageIndex].alt}
                     />
-                    <PlayButton>
+                    {/* <PlayButton>
                       <FaPlay />
-                    </PlayButton>
+                    </PlayButton> */}
                     <RightArrow onClick={goToNextImage}>
                       <FaChevronRight />
                     </RightArrow>
@@ -756,58 +758,58 @@ const HiavaReaview = ({ product = mockProductData }) => {
                       </Rating>
                       <WriteReview href="#">Write a Review</WriteReview>
                     </TitleSection>
-                   
+
                   </HeaderSection>
-                  
+
                   <PricingSection>
                     <PricingLabel>Starting At</PricingLabel>
                     <Pricing>{product.pricing}</Pricing>
                   </PricingSection>
-                  
+
                   <Description>{product.description}</Description>
                   <CallToAction>Get Free Demo</CallToAction>
                 </InfoSection>
               </ProductCard>
 
               <TabsContainer>
-                <Tab 
-                  active={activeTab === 'Overview'} 
+                <Tab
+                  active={activeTab === 'Overview'}
                   onClick={() => handleTabClick('Overview')}
                 >
                   Overview
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Features'} 
+                <Tab
+                  active={activeTab === 'Features'}
                   onClick={() => handleTabClick('Features')}
                 >
                   Features
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Reviews'} 
+                <Tab
+                  active={activeTab === 'Reviews'}
                   onClick={() => handleTabClick('Reviews')}
                 >
                   Reviews
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Pricing & Plans'} 
+                <Tab
+                  active={activeTab === 'Pricing & Plans'}
                   onClick={() => handleTabClick('Pricing & Plans')}
                 >
                   Pricing & Plans
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Specifications'} 
+                <Tab
+                  active={activeTab === 'Specifications'}
                   onClick={() => handleTabClick('Specifications')}
                 >
                   Specifications
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Compare'} 
+                <Tab
+                  active={activeTab === 'Compare'}
                   onClick={() => handleTabClick('Compare')}
                 >
                   Compare
                 </Tab>
-                <Tab 
-                  active={activeTab === "FAQ's"} 
+                <Tab
+                  active={activeTab === "FAQ's"}
                   onClick={() => handleTabClick("FAQ's")}
                 >
                   FAQ's
@@ -819,14 +821,14 @@ const HiavaReaview = ({ product = mockProductData }) => {
               </ContentSection>
             </PageContainer>
           )}
-          
+
           {sectionsVisible.HiavaFeature && <HiavaFeature />}
           {sectionsVisible.HiavaRating&& <HiavaRating/>}
           {sectionsVisible.HiavaSpecifications && <HiavaSpecification />}
           {sectionsVisible.HiavaSoftwareReviews && <HiavaSoftwareReviews />}
           {sectionsVisible.HiavaGetSoftwareCompanyDemo && <HiavaGetSoftwareCompanyDemo />}
           {sectionsVisible.HiavaDropdwon && <HiavaDropdwon />}
-        
+
     </Container>
   );
 };

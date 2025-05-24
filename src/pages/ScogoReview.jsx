@@ -7,11 +7,12 @@ import ScogoSpecification from './ScogoSpecification';
 import ScogoSoftwareReviews from './ScogoSoftwareReviews';
 import ScogoGetSoftwareCompanyDemo from './ScogoGetSoftwareCompanyDemo';
 import ScogoDropdwon from './ScogoDropdwon';
-// import image6 from '../src/assets/image6.png';
-// import image7 from './src/assets/image7.png';
-// import image8 from './src/assets/image8.png';
-// import image9 from './src/assets/image9.png';
-// import image10 from './src/assets/image10.png'; 
+import image6 from '../assets/image6.png';
+import image7 from '../assets/image7.png';
+import image8 from '../assets/image8.png';
+import image9 from '../assets/image9.png';
+import image10 from '../assets/image10.png';
+
 // Animations
 const fadeIn = keyframes`
   from {
@@ -43,17 +44,17 @@ const ProductCard = styled.div`
   border-radius: 8px;
   margin-bottom: 30px;
   background-color: #fff;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
 const ImageSection = styled.div`
-  width: 300px;
+  width: 300px; /* Fixed width for the image section */
   margin-right: 30px;
   position: relative;
-  
+
   @media (max-width: 768px) {
     width: 100%;
     margin-right: 0px;
@@ -62,23 +63,22 @@ const ImageSection = styled.div`
 `;
 
 const MainImageSlider = styled.div`
-  width: 300px;
-  height: 250px;
-  background-color: #000;
+  width: 300px; /* Explicit width */
+  height: 250px; /* Explicit height */
+  background-color: #000; /* Background to show "letterboxing" if object-fit: contain is used */
   border-radius: 8px;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  color: #777;
-  overflow: hidden;
+  overflow: hidden; /* Crucial to clip overflowing parts if any */
   position: relative;
-  
+
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%; /* Ensure image doesn't exceed slider width */
+    max-height: 100%; /* Ensure image doesn't exceed slider height */
+    object-fit: contain; /* Scales the image down to fit within the container, preserving aspect ratio */
+    /* If you want the image to fill the space and be cropped, you can use object-fit: cover; */
   }
 `;
 
@@ -98,8 +98,9 @@ const SliderArrow = styled.button`
   color: #333;
   cursor: pointer;
   z-index: 10;
-  
-  
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added subtle shadow for depth */
+
+
   &:hover {
     background: rgba(250, 250, 250, 0.95);
     color: #026283;
@@ -107,11 +108,11 @@ const SliderArrow = styled.button`
 `;
 
 const LeftArrow = styled(SliderArrow)`
-  left: -4px;
+  left: 10px; /* Adjusted to be inside the slider, with some padding */
 `;
 
 const RightArrow = styled(SliderArrow)`
-  right: -4px;
+  right: 10px; /* Adjusted to be inside the slider, with some padding */
 `;
 
 const PlayButton = styled.button`
@@ -119,10 +120,11 @@ const PlayButton = styled.button`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
   border: none;
   width: 60px;
   height: 60px;
+  border-radius: 50%; /* Make it perfectly round */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,9 +133,10 @@ const PlayButton = styled.button`
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s ease;
-  
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* More pronounced shadow for play button */
+
   &:hover {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 1); /* Fully opaque on hover */
     color: #026283;
   }
 `;
@@ -143,15 +146,15 @@ const ImageThumbnails = styled.div`
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 5px;
-  
+
   &::-webkit-scrollbar {
     height: 3px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: #ddd;
     border-radius: 10px;
@@ -171,11 +174,11 @@ const Thumbnail = styled.div`
   color: #777;
   overflow: hidden;
   border: ${props => props.active ? '2px solid #026283' : '1px solid #ddd'};
-  
+
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 'cover' is often good for thumbnails to fill the space */
   }
 `;
 
@@ -195,7 +198,7 @@ const HeaderSection = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -573,11 +576,11 @@ const mockProductData = {
     pricing: "₹ 9999",
     description: "An AI-powered automation platform that streamlines workflows, enhances decision-making, and reduces operational errors for businesses.",
     images: [
-      { id: 1, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
+      { id: 1, url: image6, alt: "image6",thumbnail: image6  },
+      { id: 2, url: image7, alt: "image7",thumbnail: image7  },
+      { id: 3, url: image8, alt: "image8",thumbnail: image8  },
+      { id: 4, url: image9, alt: "image9",thumbnail: image9  },
+      { id: 5, url: image10, alt: "image10",thumbnail: image10  },
     ],
     overview: {
       softwareOverview: "Scogo.ai is on a mission to build and deliver AI solutions as easy and cost-effective as UPI, empowering businesses to win customers and reach new markets.",
@@ -613,7 +616,7 @@ const ScogoReview = ({ product = mockProductData }) => {
       setLoading(false);
       setSectionsVisible(prev => ({...prev, mainContent: true}));
     }, 2000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -622,33 +625,33 @@ const ScogoReview = ({ product = mockProductData }) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
-      // Show components sequentially based on scroll position  
+
+      // Show components sequentially based on scroll position
       if (scrollPosition > 0.2 * documentHeight && !sectionsVisible.scogoFeature) {
         setSectionsVisible(prev => ({...prev, scogoFeature: true}));
       }
-      
+
       if (scrollPosition > 0.3 * documentHeight && !sectionsVisible.scogoRating) {
         setSectionsVisible(prev => ({...prev, scogoRating: true}));
       }
-      
+
       if (scrollPosition > 0.4 * documentHeight && !sectionsVisible.scogospecifications) {
         setSectionsVisible(prev => ({...prev, scogospecifications: true}));
       }
-      
+
       if (scrollPosition > 0.5 * documentHeight && !sectionsVisible.scogosoftwareReviews) {
         setSectionsVisible(prev => ({...prev, scogosoftwareReviews: true}));
       }
-      
+
       if (scrollPosition > 0.6 * documentHeight && !sectionsVisible.scogosoftwareDemo) {
         setSectionsVisible(prev => ({...prev, scogosoftwareDemo: true}));
       }
-      
+
       if (scrollPosition > 0.7 * documentHeight && !sectionsVisible.scogodropdown) {
         setSectionsVisible(prev => ({...prev, scogodropdown: true}));
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionsVisible]);
@@ -678,7 +681,7 @@ const ScogoReview = ({ product = mockProductData }) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
-    
+
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
         stars.push(<StarIcon key={i} />);
@@ -688,7 +691,7 @@ const ScogoReview = ({ product = mockProductData }) => {
         stars.push(<StarIcon key={i} style={{ opacity: 0.2 }} />);
       }
     }
-    
+
     return stars;
   };
 
@@ -716,7 +719,7 @@ const ScogoReview = ({ product = mockProductData }) => {
 
   return (
     <Container>
-      
+
           {sectionsVisible.mainContent && (
             <PageContainer>
               <ProductCard>
@@ -725,13 +728,13 @@ const ScogoReview = ({ product = mockProductData }) => {
                     <LeftArrow onClick={goToPreviousImage}>
                       <FaChevronLeft />
                     </LeftArrow>
-                    <img 
-                      src={product.images[currentImageIndex].url} 
-                      alt={product.images[currentImageIndex].alt} 
+                    <img
+                      src={product.images[currentImageIndex].url}
+                      alt={product.images[currentImageIndex].alt}
                     />
-                    <PlayButton>
+                    {/* <PlayButton>
                       <FaPlay />
-                    </PlayButton>
+                    </PlayButton> */}
                     <RightArrow onClick={goToNextImage}>
                       <FaChevronRight />
                     </RightArrow>
@@ -758,60 +761,57 @@ const ScogoReview = ({ product = mockProductData }) => {
                       </Rating>
                       <WriteReview href="#">Write a Review</WriteReview>
                     </TitleSection>
-                    {/* <AvatarSection>
-                      <Avatar>H</Avatar>
-                    </AvatarSection> */}
                   </HeaderSection>
-                  
+
                   <PricingSection>
                     <PricingLabel>Starting At</PricingLabel>
                     <Pricing>{product.pricing}</Pricing>
                   </PricingSection>
-                  
+
                   <Description>{product.description}</Description>
                   <CallToAction>Get Free Demo</CallToAction>
                 </InfoSection>
               </ProductCard>
 
               <TabsContainer>
-                <Tab 
-                  active={activeTab === 'Overview'} 
+                <Tab
+                  active={activeTab === 'Overview'}
                   onClick={() => handleTabClick('Overview')}
                 >
                   Overview
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Features'} 
+                <Tab
+                  active={activeTab === 'Features'}
                   onClick={() => handleTabClick('Features')}
                 >
                   Features
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Reviews'} 
+                <Tab
+                  active={activeTab === 'Reviews'}
                   onClick={() => handleTabClick('Reviews')}
                 >
                   Reviews
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Pricing & Plans'} 
+                <Tab
+                  active={activeTab === 'Pricing & Plans'}
                   onClick={() => handleTabClick('Pricing & Plans')}
                 >
                   Pricing & Plans
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Specifications'} 
+                <Tab
+                  active={activeTab === 'Specifications'}
                   onClick={() => handleTabClick('Specifications')}
                 >
                   Specifications
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Compare'} 
+                <Tab
+                  active={activeTab === 'Compare'}
                   onClick={() => handleTabClick('Compare')}
                 >
                   Compare
                 </Tab>
-                <Tab 
-                  active={activeTab === "FAQ's"} 
+                <Tab
+                  active={activeTab === "FAQ's"}
                   onClick={() => handleTabClick("FAQ's")}
                 >
                   FAQ's
@@ -823,14 +823,14 @@ const ScogoReview = ({ product = mockProductData }) => {
               </ContentSection>
             </PageContainer>
           )}
-          
+
           {sectionsVisible.scogoFeature && <ScogoFeature />}
           {sectionsVisible.scogoRating && <ScogoRating />}
           {sectionsVisible.scogospecifications && <ScogoSpecification />}
           {sectionsVisible.scogosoftwareReviews && <ScogoSoftwareReviews />}
           {sectionsVisible.scogosoftwareDemo && <ScogoGetSoftwareCompanyDemo />}
           {sectionsVisible.scogodropdown && <ScogoDropdwon />}
-        
+
     </Container>
   );
 };

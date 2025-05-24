@@ -7,11 +7,11 @@ import NapkinSpecification from './NapkinSpecification';
 import NapkinSoftwareReviews from './NapkinSoftwareReviews';
 import NapkinGetSoftwareCompanyDemo from './NapkinGetSoftwareCompanyDemo';
 import NapkinDropdwon from './NapkinDropdwon';
-// import image6 from '../src/assets/image6.png';
-// import image7 from './src/assets/image7.png';
-// import image8 from './src/assets/image8.png';
-// import image9 from './src/assets/image9.png';
-// import image10 from './src/assets/image10.png'; 
+import napkin1 from '../assets/napkin1.png';
+import napkin2 from '../assets/napkin2.png';
+import napkin3 from '../assets/napkin3.png';
+import napkin4 from '../assets/napkin4.png';
+import napkin5 from '../assets/napkin5.png'; 
 // Animations
 const fadeIn = keyframes`
   from {
@@ -684,11 +684,11 @@ const mockProductData = {
     pricing: "₹ 9999",
     description: "An AI-powered automation platform that streamlines workflows, enhances decision-making, and reduces operational errors for businesses.",
     images: [
-      { id: 1, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
+      { id: 1, url: napkin1, alt: "napkin",thumbnail: napkin1},
+      { id: 2, url: napkin2, alt: "napkin",thumbnail: napkin2},
+      { id: 3, url: napkin3, alt: "napkin",thumbnail: napkin3},
+      { id: 4, url: napkin4, alt: "napkin",thumbnail: napkin4},
+      { id: 5, url: napkin5, alt: "napkin",thumbnail: napkin5},
     ],
     overview: {
       softwareOverview: "Napkin AI is an innovative platform that transforms text into compelling visuals, such as diagrams, charts, and flowcharts, enhancing business storytelling and communication.",
@@ -843,9 +843,9 @@ const NapkinReview = ({ product = mockProductData }) => {
                       src={product.images[currentImageIndex].url} 
                       alt={product.images[currentImageIndex].alt} 
                     />
-                    <PlayButton>
+                    {/* <PlayButton>
                       <FaPlay />
-                    </PlayButton>
+                    </PlayButton> */}
                     <RightArrow onClick={goToNextImage}>
                       <FaChevronRight />
                     </RightArrow>

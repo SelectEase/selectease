@@ -6,12 +6,13 @@ import ZrikaRating from './ZrikaRating';
 import ZrikaSpecification from './ZrikaSpecification';
 import ZrikaSoftwareReviews from './ZrikaSoftwareReviews';
 import ZrikaGetSoftwareCompanyDemo from './ZrikaGetSoftwareCompanyDemo';
-import ZrikaDropdwon from './ZrikaDropdown';
-// import image52 from '../src/assets/image52.png';
-// import image53 from './src/assets/image53.png';
-// import image54 from './src/assets/image54.png';
-// import image55 from './src/assets/image55.png';
-// import image56 from './src/assets/image56.png'; 
+import ZrikaDropdown from './ZrikaDropdown'; // Corrected import name: 'ZrikaDropdown'
+import zrika1 from '../assets/zrika1.png';
+import zrika2 from '../assets/zrika2.png';
+import zrika3 from '../assets/zrika3.png';
+import zrika4 from '../assets/zrika4.png';
+import zrika5 from '../assets/zrika5.png';
+
 // Animations
 const fadeIn = keyframes`
   from {
@@ -43,7 +44,7 @@ const ProductCard = styled.div`
   border-radius: 8px;
   margin-bottom: 30px;
   background-color: #fff;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -53,7 +54,7 @@ const ImageSection = styled.div`
   width: 300px;
   margin-right: 30px;
   position: relative;
-  
+
   @media (max-width: 768px) {
     width: 100%;
     margin-right: 0px;
@@ -62,23 +63,21 @@ const ImageSection = styled.div`
 `;
 
 const MainImageSlider = styled.div`
-  width: 300px;
-  height: 250px;
+  width: 300px; /* Explicit width */
+  height: 250px; /* Explicit height */
   background-color: #000;
   border-radius: 8px;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  color: #777;
-  overflow: hidden;
+  overflow: hidden; /* Crucial for image fitting */
   position: relative;
-  
+
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%; /* Ensure image doesn't exceed slider width */
+    max-height: 100%; /* Ensure image doesn't exceed slider height */
+    object-fit: contain; /* Scales the image down to fit, preserving aspect ratio */
   }
 `;
 
@@ -98,8 +97,9 @@ const SliderArrow = styled.button`
   color: #333;
   cursor: pointer;
   z-index: 10;
-  
-  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added subtle shadow */
+
+
   &:hover {
     background: rgba(250, 250, 250, 0.95);
     color: #026283;
@@ -107,11 +107,11 @@ const SliderArrow = styled.button`
 `;
 
 const LeftArrow = styled(SliderArrow)`
-  left: -4px;
+  left: 10px; /* Adjusted to be inside the slider */
 `;
 
 const RightArrow = styled(SliderArrow)`
-  right: -4px;
+  right: 10px; /* Adjusted to be inside the slider */
 `;
 
 const PlayButton = styled.button`
@@ -119,10 +119,11 @@ const PlayButton = styled.button`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
   border: none;
   width: 60px;
   height: 60px;
+  border-radius: 50%; /* Make it perfectly round */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,9 +132,10 @@ const PlayButton = styled.button`
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s ease;
-  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+
   &:hover {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 1); /* Fully opaque on hover */
     color: #026283;
   }
 `;
@@ -143,15 +145,15 @@ const ImageThumbnails = styled.div`
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 5px;
-  
+
   &::-webkit-scrollbar {
     height: 3px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: #ddd;
     border-radius: 10px;
@@ -171,7 +173,7 @@ const Thumbnail = styled.div`
   color: #777;
   overflow: hidden;
   border: ${props => props.active ? '2px solid #026283' : '1px solid #ddd'};
-  
+
   img {
     width: 100%;
     height: 100%;
@@ -195,7 +197,7 @@ const HeaderSection = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -319,6 +321,8 @@ const CallToAction = styled.button`
   width: fit-content;
   box-shadow: 0 2px 5px rgba(11, 11, 11, 0.1);
   font-family: 'Outfit', sans-serif;
+  margin: 0 auto; /* Centered the button */
+  display: block; /* Ensures margin auto works */
 
   &:hover {
     background-color: #01516d;
@@ -574,11 +578,11 @@ const mockProductData = {
     pricing: "₹ 9999",
     description: "An AI-powered automation platform that streamlines workflows, enhances decision-making, and reduces operational errors for businesses.",
     images: [
-      { id: 1, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
+      { id: 1, url: zrika1, alt: "image", thumbnail: zrika1 },
+      { id: 2, url: zrika2, alt: "image", thumbnail: zrika2 },
+      { id: 3, url: zrika3, alt: "image", thumbnail: zrika3 },
+      { id: 4, url: zrika4, alt: "image", thumbnail: zrika4 },
+      { id: 5, url: zrika5, alt: "image", thumbnail: zrika5 }
     ],
     overview: {
       softwareOverview: "Zrika is a dynamic software firm dedicated to pushing boundaries in fintech. Their core focus lies in creating innovative, tailored technology solutions across three specialized divisions: Payments, Solutions, and Value Plus. By partnering with banks, payment aggregators, NBFCs, and a diverse range of digital merchants, Zrika empowers clients to bridge the divide between legacy systems and the demands of the modern digital era. Their approach centers on delivering secure, scalable, and user-friendly technology that drives both business growth and financial inclusivity. ",
@@ -600,12 +604,12 @@ const ZrikaReview = ({ product = mockProductData }) => {
   const [loading, setLoading] = useState(true);
   const [sectionsVisible, setSectionsVisible] = useState({
     mainContent: false,
-    quickFeature: false,
-    quickRating: false,
-    quickspecifications: false,
-    quicksoftwareReviews: false,
-    softwareDemo: false,
-    dropdown: false
+    zrikaFeature: false, // Consistent naming
+    zrikaRating: false, // Consistent naming
+    zrikaSpecifications: false, // Consistent naming
+    zrikaSoftwareReviews: false, // Consistent naming
+    zrikaGetSoftwareCompanyDemo: false, // Consistent naming
+    zrikaDropdown: false // Consistent naming
   });
 
   // Simulate initial loading
@@ -614,7 +618,7 @@ const ZrikaReview = ({ product = mockProductData }) => {
       setLoading(false);
       setSectionsVisible(prev => ({...prev, mainContent: true}));
     }, 2000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -623,33 +627,33 @@ const ZrikaReview = ({ product = mockProductData }) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
-      // Show components sequentially based on scroll position  
-      if (scrollPosition > 0.2 * documentHeight && !sectionsVisible.ZrikaFeature) {
-        setSectionsVisible(prev => ({...prev, ZrikaFeature: true}));
+
+      // Show components sequentially based on scroll position
+      if (scrollPosition > 0.2 * documentHeight && !sectionsVisible.zrikaFeature) {
+        setSectionsVisible(prev => ({...prev, zrikaFeature: true}));
       }
-      
-      if (scrollPosition > 0.3 * documentHeight && !sectionsVisible.ZrikaRating) {
-        setSectionsVisible(prev => ({...prev, ZrikaRating: true}));
+
+      if (scrollPosition > 0.3 * documentHeight && !sectionsVisible.zrikaRating) {
+        setSectionsVisible(prev => ({...prev, zrikaRating: true}));
       }
-      
-      if (scrollPosition > 0.4 * documentHeight && !sectionsVisible.ZrikaSpecifications) {
-        setSectionsVisible(prev => ({...prev, ZrikaSpecifications: true}));
+
+      if (scrollPosition > 0.4 * documentHeight && !sectionsVisible.zrikaSpecifications) {
+        setSectionsVisible(prev => ({...prev, zrikaSpecifications: true}));
       }
-      
-      if (scrollPosition > 0.5 * documentHeight && !sectionsVisible.ZrikaSoftwareReviews ) {
-        setSectionsVisible(prev => ({...prev, ZrikaSoftwareReviews : true}));
+
+      if (scrollPosition > 0.5 * documentHeight && !sectionsVisible.zrikaSoftwareReviews) {
+        setSectionsVisible(prev => ({...prev, zrikaSoftwareReviews: true}));
       }
-      
-      if (scrollPosition > 0.6 * documentHeight && !sectionsVisible.ZrikaGetSoftwareDemo) {
-        setSectionsVisible(prev => ({...prev, ZrikaGetSoftwareDemo: true}));
+
+      if (scrollPosition > 0.6 * documentHeight && !sectionsVisible.zrikaGetSoftwareCompanyDemo) {
+        setSectionsVisible(prev => ({...prev, zrikaGetSoftwareCompanyDemo: true}));
       }
-      
-      if (scrollPosition > 0.7 * documentHeight && !sectionsVisible.ZrikaDropdwon) {
-        setSectionsVisible(prev => ({...prev, ZrikaDropdwon: true}));
+
+      if (scrollPosition > 0.7 * documentHeight && !sectionsVisible.zrikaDropdown) {
+        setSectionsVisible(prev => ({...prev, zrikaDropdown: true}));
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionsVisible]);
@@ -679,7 +683,7 @@ const ZrikaReview = ({ product = mockProductData }) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
-    
+
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
         stars.push(<StarIcon key={i} />);
@@ -689,7 +693,7 @@ const ZrikaReview = ({ product = mockProductData }) => {
         stars.push(<StarIcon key={i} style={{ opacity: 0.2 }} />);
       }
     }
-    
+
     return stars;
   };
 
@@ -717,7 +721,7 @@ const ZrikaReview = ({ product = mockProductData }) => {
 
   return (
     <Container>
-      
+
           {sectionsVisible.mainContent && (
             <PageContainer>
               <ProductCard>
@@ -726,13 +730,13 @@ const ZrikaReview = ({ product = mockProductData }) => {
                     <LeftArrow onClick={goToPreviousImage}>
                       <FaChevronLeft />
                     </LeftArrow>
-                    <img 
-                      src={product.images[currentImageIndex].url} 
-                      alt={product.images[currentImageIndex].alt} 
+                    <img
+                      src={product.images[currentImageIndex].url}
+                      alt={product.images[currentImageIndex].alt}
                     />
-                    <PlayButton>
+                    {/* <PlayButton>
                       <FaPlay />
-                    </PlayButton>
+                    </PlayButton> */}
                     <RightArrow onClick={goToNextImage}>
                       <FaChevronRight />
                     </RightArrow>
@@ -759,60 +763,58 @@ const ZrikaReview = ({ product = mockProductData }) => {
                       </Rating>
                       <WriteReview href="#">Write a Review</WriteReview>
                     </TitleSection>
-                   
+
                   </HeaderSection>
-                  
+
                   <PricingSection>
                     <PricingLabel>Starting At</PricingLabel>
                     <Pricing>{product.pricing}</Pricing>
                   </PricingSection>
-                  
+
                   <Description>{product.description}</Description>
-                  < Buttoncontainer >
                   <CallToAction>Get Free Demo</CallToAction>
-                  </Buttoncontainer>
                 </InfoSection>
               </ProductCard>
 
               <TabsContainer>
-                <Tab 
-                  active={activeTab === 'Overview'} 
+                <Tab
+                  active={activeTab === 'Overview'}
                   onClick={() => handleTabClick('Overview')}
                 >
                   Overview
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Features'} 
+                <Tab
+                  active={activeTab === 'Features'}
                   onClick={() => handleTabClick('Features')}
                 >
                   Features
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Reviews'} 
+                <Tab
+                  active={activeTab === 'Reviews'}
                   onClick={() => handleTabClick('Reviews')}
                 >
                   Reviews
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Pricing & Plans'} 
+                <Tab
+                  active={activeTab === 'Pricing & Plans'}
                   onClick={() => handleTabClick('Pricing & Plans')}
                 >
                   Pricing & Plans
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Specifications'} 
+                <Tab
+                  active={activeTab === 'Specifications'}
                   onClick={() => handleTabClick('Specifications')}
                 >
                   Specifications
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Compare'} 
+                <Tab
+                  active={activeTab === 'Compare'}
                   onClick={() => handleTabClick('Compare')}
                 >
                   Compare
                 </Tab>
-                <Tab 
-                  active={activeTab === "FAQ's"} 
+                <Tab
+                  active={activeTab === "FAQ's"}
                   onClick={() => handleTabClick("FAQ's")}
                 >
                   FAQ's
@@ -824,14 +826,15 @@ const ZrikaReview = ({ product = mockProductData }) => {
               </ContentSection>
             </PageContainer>
           )}
-          
-          {sectionsVisible.ZrikaFeature && <ZrikaFeature />}
-          {sectionsVisible.ZrikaRating&& <ZrikaRating/>}
-          {sectionsVisible.ZrikaSpecifications && <ZrikaSpecification />}
-          {sectionsVisible.ZrikaSoftwareReviews  && <ZrikaSoftwareReviews  />}
-          {sectionsVisible.ZrikaGetSoftwareCompanyDemo && <ZrikaGetSoftwareCompanyDemo />}
-          {sectionsVisible.ZrikaDropdwon && <ZrikaDropdwon />}
-        
+
+          {/* Conditional rendering for other sections */}
+          {sectionsVisible.zrikaFeature && <ZrikaFeature />}
+          {sectionsVisible.zrikaRating && <ZrikaRating />}
+          {sectionsVisible.zrikaSpecifications && <ZrikaSpecification />}
+          {sectionsVisible.zrikaSoftwareReviews && <ZrikaSoftwareReviews />}
+          {sectionsVisible.zrikaGetSoftwareCompanyDemo && <ZrikaGetSoftwareCompanyDemo />}
+          {sectionsVisible.zrikaDropdown && <ZrikaDropdown />}
+
     </Container>
   );
 };

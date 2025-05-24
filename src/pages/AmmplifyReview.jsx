@@ -11,7 +11,7 @@ import AmmplifyDropdwon from './AmmplifyDropdown';
 // import image53 from './src/assets/image53.png';
 // import image54 from './src/assets/image54.png';
 // import image55 from './src/assets/image55.png';
-// import image56 from './src/assets/image56.png'; 
+import ammplify1 from '../assets/ammplify1.png'; 
 // Animations
 const fadeIn = keyframes`
   from {
@@ -571,11 +571,11 @@ const mockProductData = {
     pricing: "₹ 9999",
     description: "An AI-powered automation platform that streamlines workflows, enhances decision-making, and reduces operational errors for businesses.",
     images: [
-      { id: 1, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
+      { id: 1, url: ammplify1, alt: "ammplify",thumbnail: ammplify1 },
+      // { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
+      // { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
+      // { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
+      // { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
     ],
     overview: {
       softwareOverview: " Ava Ammmplify is a hyper-personalized AI copilot designed for LinkedIn creators. It transforms users' expertise into viral content by learning their unique voice, understanding their audience, and enhancing their LinkedIn impact while maintaining authenticity an AI-powered writing assistant designed to help users create their first drafts quickly, enhancing productivity by streamlining the writing process",
@@ -727,9 +727,9 @@ const AmmplifyReview = ({ product = mockProductData }) => {
                       src={product.images[currentImageIndex].url} 
                       alt={product.images[currentImageIndex].alt} 
                     />
-                    <PlayButton>
+                    {/* <PlayButton>
                       <FaPlay />
-                    </PlayButton>
+                    </PlayButton> */}
                     <RightArrow onClick={goToNextImage}>
                       <FaChevronRight />
                     </RightArrow>

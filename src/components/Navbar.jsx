@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { authAPI } from '../services/api';
 import AuthContext from '../context/AuthContext';
 import selectease from '../assets/selectease.svg';
+import logo from '../assets/header.svg';
 import './Navbar.css';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 
@@ -82,7 +83,7 @@ const Navbar = () => {
           </div>
           
           <Link to="/" className="navbar-logo">
-            <img src={selectease} alt="Select Ease" />
+            <img src={logo} alt="Select Ease" />
           </Link>
 
           {/* <div className="nav-links">

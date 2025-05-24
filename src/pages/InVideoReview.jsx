@@ -6,12 +6,14 @@ import InVideoRating from './InVideoRating';
 import InVideoSpecification from './InVideoSpecification';
 import InVideoSoftwareReviews from './InVideoSoftwareReviews';
 import InVideoGetSoftwareCompanyDemo from './InVideoGetSoftwareCompanyDemo';
-import InVideoDropdwon from './InVideoDropdown';
-// import image52 from '../src/assets/image52.png';
-// import image53 from './src/assets/image53.png';
-// import image54 from './src/assets/image54.png';
-// import image55 from './src/assets/image55.png';
-// import image56 from './src/assets/image56.png'; 
+import InVideoDropdwon from './InVideoDropdown'; // Corrected import name
+
+import invideo1 from '../assets/invideo1.png';
+import invideo2 from '../assets/invideo2.png';
+import invideo3 from '../assets/invideo3.png';
+import invideo4 from '../assets/invideo4.png';
+import invideo5 from '../assets/invideo5.png';
+
 // Animations
 const fadeIn = keyframes`
   from {
@@ -25,7 +27,7 @@ const fadeIn = keyframes`
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
- padding: 50px 25px;
+  padding: 50px 25px;
 `;
 
 const PageContainer = styled.div`
@@ -43,7 +45,7 @@ const ProductCard = styled.div`
   border-radius: 8px;
   margin-bottom: 30px;
   background-color: #fff;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -53,7 +55,7 @@ const ImageSection = styled.div`
   width: 300px;
   margin-right: 30px;
   position: relative;
-  
+
   @media (max-width: 768px) {
     width: 100%;
     margin-right: 0px;
@@ -62,23 +64,22 @@ const ImageSection = styled.div`
 `;
 
 const MainImageSlider = styled.div`
-  width: 300px;
-  height: 250px;
-  background-color: #000;
+  width: 300px; /* Explicit width */
+  height: 250px; /* Explicit height */
+  background-color: #000; /* Background to show "letterboxing" if object-fit: contain is used */
   border-radius: 8px;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  color: #777;
-  overflow: hidden;
+  overflow: hidden; /* Crucial to clip overflowing parts if any */
   position: relative;
-  
+
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%; /* Ensure image doesn't exceed slider width */
+    max-height: 100%; /* Ensure image doesn't exceed slider height */
+    object-fit: contain; /* Scales the image down to fit within the container, preserving aspect ratio */
+    /* If you want the image to fill the space and be cropped, you can use object-fit: cover; */
   }
 `;
 
@@ -98,8 +99,9 @@ const SliderArrow = styled.button`
   color: #333;
   cursor: pointer;
   z-index: 10;
-  
-  
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added subtle shadow for depth */
+
+
   &:hover {
     background: rgba(250, 250, 250, 0.95);
     color: #026283;
@@ -107,11 +109,11 @@ const SliderArrow = styled.button`
 `;
 
 const LeftArrow = styled(SliderArrow)`
-  left: -4px;
+  left: 10px; /* Adjusted to be inside the slider, with some padding */
 `;
 
 const RightArrow = styled(SliderArrow)`
-  right: -4px;
+  right: 10px; /* Adjusted to be inside the slider, with some padding */
 `;
 
 const PlayButton = styled.button`
@@ -119,10 +121,11 @@ const PlayButton = styled.button`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
   border: none;
   width: 60px;
   height: 60px;
+  border-radius: 50%; /* Make it perfectly round */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,9 +134,10 @@ const PlayButton = styled.button`
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s ease;
-  
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* More pronounced shadow for play button */
+
   &:hover {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 1); /* Fully opaque on hover */
     color: #026283;
   }
 `;
@@ -143,15 +147,15 @@ const ImageThumbnails = styled.div`
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 5px;
-  
+
   &::-webkit-scrollbar {
     height: 3px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: #ddd;
     border-radius: 10px;
@@ -171,7 +175,7 @@ const Thumbnail = styled.div`
   color: #777;
   overflow: hidden;
   border: ${props => props.active ? '2px solid #026283' : '1px solid #ddd'};
-  
+
   img {
     width: 100%;
     height: 100%;
@@ -195,7 +199,7 @@ const HeaderSection = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -565,17 +569,17 @@ const FAQContent = () => (
 const mockProductData = {
     id: 1,
     title: "InVideo",
-    company: "AI-Powered  Creative Tools / Assistants",
+    company: "AI-Powered Creative Tools / Assistants",
     rating: 4.3,
     reviewCount: 26,
     pricing: "₹ 9999",
     description: "An AI-powered automation platform that streamlines workflows, enhances decision-making, and reduces operational errors for businesses.",
     images: [
-      { id: 1, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
+      { id: 1, url: invideo1, alt: "invideo",thumbnail: invideo1 },
+      { id: 2, url: invideo2, alt: "invideo",thumbnail: invideo2 },
+      { id: 3, url: invideo3, alt: "invideo",thumbnail: invideo3 },
+      { id: 4, url: invideo4, alt: "invideo",thumbnail: invideo4 },
+      { id: 5, url: invideo5, alt: "invideo",thumbnail: invideo5 }
     ],
     overview: {
       softwareOverview: " InVideo offers a user-friendly interface that allows users to transform scripts, text, or visual content into engaging videos with just a few clicks. Its AI-powered tools generate scripts, visuals, and voiceovers, streamlining the video creation process. ",
@@ -597,12 +601,12 @@ const InVideoReview = ({ product = mockProductData }) => {
   const [loading, setLoading] = useState(true);
   const [sectionsVisible, setSectionsVisible] = useState({
     mainContent: false,
-    quickFeature: false,
-    quickRating: false,
-    quickspecifications: false,
-    quicksoftwareReviews: false,
-    softwareDemo: false,
-    dropdown: false
+    inVideoFeature: false, // Corrected property name for consistency
+    inVideoRating: false, // Corrected property name for consistency
+    inVideoSpecifications: false, // Corrected property name for consistency
+    inVideoSoftwareReviews: false, // Corrected property name for consistency
+    inVideoGetSoftwareDemo: false, // Corrected property name for consistency
+    inVideoDropdown: false // Corrected property name for consistency
   });
 
   // Simulate initial loading
@@ -611,7 +615,7 @@ const InVideoReview = ({ product = mockProductData }) => {
       setLoading(false);
       setSectionsVisible(prev => ({...prev, mainContent: true}));
     }, 2000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -620,33 +624,33 @@ const InVideoReview = ({ product = mockProductData }) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      
-      // Show components sequentially based on scroll position  
-      if (scrollPosition > 0.2 * documentHeight && !sectionsVisible.InVideoFeature) {
-        setSectionsVisible(prev => ({...prev, InVideoFeature: true}));
+
+      // Show components sequentially based on scroll position
+      if (scrollPosition > 0.2 * documentHeight && !sectionsVisible.inVideoFeature) {
+        setSectionsVisible(prev => ({...prev, inVideoFeature: true}));
       }
-      
-      if (scrollPosition > 0.3 * documentHeight && !sectionsVisible.InVideoRating) {
-        setSectionsVisible(prev => ({...prev, InVideoRating: true}));
+
+      if (scrollPosition > 0.3 * documentHeight && !sectionsVisible.inVideoRating) {
+        setSectionsVisible(prev => ({...prev, inVideoRating: true}));
       }
-      
-      if (scrollPosition > 0.4 * documentHeight && !sectionsVisible.InVideoSpecifications) {
-        setSectionsVisible(prev => ({...prev, InVideoSpecifications: true}));
+
+      if (scrollPosition > 0.4 * documentHeight && !sectionsVisible.inVideoSpecifications) {
+        setSectionsVisible(prev => ({...prev, inVideoSpecifications: true}));
       }
-      
-      if (scrollPosition > 0.5 * documentHeight && !sectionsVisible.InVideoSoftwareReviews) {
-        setSectionsVisible(prev => ({...prev, InVideoSoftwareReviews: true}));
+
+      if (scrollPosition > 0.5 * documentHeight && !sectionsVisible.inVideoSoftwareReviews) {
+        setSectionsVisible(prev => ({...prev, inVideoSoftwareReviews: true}));
       }
-      
-      if (scrollPosition > 0.6 * documentHeight && !sectionsVisible.InVideoGetSoftwareDemo) {
-        setSectionsVisible(prev => ({...prev, InVideoGetSoftwareDemo: true}));
+
+      if (scrollPosition > 0.6 * documentHeight && !sectionsVisible.inVideoGetSoftwareDemo) {
+        setSectionsVisible(prev => ({...prev, inVideoGetSoftwareDemo: true}));
       }
-      
-      if (scrollPosition > 0.7 * documentHeight && !sectionsVisible.InVideoDropdwon) {
-        setSectionsVisible(prev => ({...prev, InVideoDropdwon: true}));
+
+      if (scrollPosition > 0.7 * documentHeight && !sectionsVisible.inVideoDropdown) {
+        setSectionsVisible(prev => ({...prev, inVideoDropdown: true}));
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionsVisible]);
@@ -676,7 +680,7 @@ const InVideoReview = ({ product = mockProductData }) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
-    
+
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
         stars.push(<StarIcon key={i} />);
@@ -686,7 +690,7 @@ const InVideoReview = ({ product = mockProductData }) => {
         stars.push(<StarIcon key={i} style={{ opacity: 0.2 }} />);
       }
     }
-    
+
     return stars;
   };
 
@@ -714,7 +718,7 @@ const InVideoReview = ({ product = mockProductData }) => {
 
   return (
     <Container>
-      
+
           {sectionsVisible.mainContent && (
             <PageContainer>
               <ProductCard>
@@ -723,13 +727,13 @@ const InVideoReview = ({ product = mockProductData }) => {
                     <LeftArrow onClick={goToPreviousImage}>
                       <FaChevronLeft />
                     </LeftArrow>
-                    <img 
-                      src={product.images[currentImageIndex].url} 
-                      alt={product.images[currentImageIndex].alt} 
+                    <img
+                      src={product.images[currentImageIndex].url}
+                      alt={product.images[currentImageIndex].alt}
                     />
-                    <PlayButton>
+                    {/* <PlayButton>
                       <FaPlay />
-                    </PlayButton>
+                    </PlayButton> */}
                     <RightArrow onClick={goToNextImage}>
                       <FaChevronRight />
                     </RightArrow>
@@ -756,58 +760,57 @@ const InVideoReview = ({ product = mockProductData }) => {
                       </Rating>
                       <WriteReview href="#">Write a Review</WriteReview>
                     </TitleSection>
-                   
                   </HeaderSection>
-                  
+
                   <PricingSection>
                     <PricingLabel>Starting At</PricingLabel>
                     <Pricing>{product.pricing}</Pricing>
                   </PricingSection>
-                  
+
                   <Description>{product.description}</Description>
                   <CallToAction>Get Free Demo</CallToAction>
                 </InfoSection>
               </ProductCard>
 
               <TabsContainer>
-                <Tab 
-                  active={activeTab === 'Overview'} 
+                <Tab
+                  active={activeTab === 'Overview'}
                   onClick={() => handleTabClick('Overview')}
                 >
                   Overview
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Features'} 
+                <Tab
+                  active={activeTab === 'Features'}
                   onClick={() => handleTabClick('Features')}
                 >
                   Features
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Reviews'} 
+                <Tab
+                  active={activeTab === 'Reviews'}
                   onClick={() => handleTabClick('Reviews')}
                 >
                   Reviews
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Pricing & Plans'} 
+                <Tab
+                  active={activeTab === 'Pricing & Plans'}
                   onClick={() => handleTabClick('Pricing & Plans')}
                 >
                   Pricing & Plans
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Specifications'} 
+                <Tab
+                  active={activeTab === 'Specifications'}
                   onClick={() => handleTabClick('Specifications')}
                 >
                   Specifications
                 </Tab>
-                <Tab 
-                  active={activeTab === 'Compare'} 
+                <Tab
+                  active={activeTab === 'Compare'}
                   onClick={() => handleTabClick('Compare')}
                 >
                   Compare
                 </Tab>
-                <Tab 
-                  active={activeTab === "FAQ's"} 
+                <Tab
+                  active={activeTab === "FAQ's"}
                   onClick={() => handleTabClick("FAQ's")}
                 >
                   FAQ's
@@ -819,14 +822,15 @@ const InVideoReview = ({ product = mockProductData }) => {
               </ContentSection>
             </PageContainer>
           )}
-          
-          {sectionsVisible.InVideoFeature && <InVideoFeature />}
-          {sectionsVisible.InVideoRating&& <InVideoRating/>}
-          {sectionsVisible.InVideoSpecifications && <InVideoSpecification />}
-          {sectionsVisible.InVideoSoftwareReviews && <InVideoSoftwareReviews />}
-          {sectionsVisible.InVideoGetSoftwareCompanyDemo && <InVideoGetSoftwareCompanyDemo />}
-          {sectionsVisible.InVideoDropdwon && <InVideoDropdwon />}
-        
+
+          {/* Conditional rendering for other sections */}
+          {sectionsVisible.inVideoFeature && <InVideoFeature />}
+          {sectionsVisible.inVideoRating && <InVideoRating/>}
+          {sectionsVisible.inVideoSpecifications && <InVideoSpecification />}
+          {sectionsVisible.inVideoSoftwareReviews && <InVideoSoftwareReviews />}
+          {sectionsVisible.inVideoGetSoftwareDemo && <InVideoGetSoftwareCompanyDemo />}
+          {sectionsVisible.inVideoDropdown && <InVideoDropdwon />}
+
     </Container>
   );
 };

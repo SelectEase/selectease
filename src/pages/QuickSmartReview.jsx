@@ -7,11 +7,12 @@ import QuickSmartSpecification from './QuickSmartSpecification';
 import QuickSmartSoftwareReviews from './QuickSmartSoftwareReviews';
 import QuickGetSoftwareCompanyDemo from './QuickGetSoftwareCompanyDemo';
 import QuickDropdwon from './QuickDropdwon';
-// import Image41 from './src/assets/Image41.png';
-// import Image42 from './src/assets/Image42.png';
-// import Image43 from './src/assets/Image43.png';
-// import Image44 from './src/assets/Image44.png';
-// import Image45 from './src/assets/Image45.png';
+import Quick1 from '../assets/Quick1.png';
+import Quick2 from '../assets/Quick2.png';
+import Quick3 from '../assets/Quick3.png';
+import Quick4 from '../assets/Quick4.png';
+import Quick5 from '../assets/Quick5.png';
+
 // Animations
 const fadeIn = keyframes`
   from {
@@ -25,7 +26,7 @@ const fadeIn = keyframes`
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
- padding: 50px 25px;
+  padding: 50px 25px;
 `;
 
 const PageContainer = styled.div`
@@ -72,13 +73,17 @@ const MainImageSlider = styled.div`
   align-items: center;
   font-size: 14px;
   color: #777;
-  overflow: hidden;
+  overflow: hidden; /* Ensures anything outside the bounds is clipped */
   position: relative;
   
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Changed from 'cover' to 'contain' */
+    /* 'contain' scales the image to fit the container, preserving its aspect ratio.
+       It will be letterboxed if the aspect ratio doesn't match.
+       If you want it to fill the space and crop, use 'cover' but be aware of cropping.
+       'contain' is generally better for showing the whole image. */
   }
 `;
 
@@ -107,11 +112,11 @@ const SliderArrow = styled.button`
 `;
 
 const LeftArrow = styled(SliderArrow)`
-  left: -4px;
+  left: 10px; /* Adjusted position */
 `;
 
 const RightArrow = styled(SliderArrow)`
-  right: -4px;
+  right: 10px; /* Adjusted position */
 `;
 
 const PlayButton = styled.button`
@@ -123,6 +128,7 @@ const PlayButton = styled.button`
   border: none;
   width: 60px;
   height: 60px;
+  border-radius: 50%; /* Added border-radius to make it circular */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,7 +181,7 @@ const Thumbnail = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 'cover' is fine for thumbnails to fill the space */
   }
 `;
 
@@ -573,11 +579,11 @@ const mockProductData = {
     pricing: "₹ 9999",
     description: "An AI-powered automation platform that streamlines workflows, enhances decision-making, and reduces operational errors for businesses.",
     images: [
-      { id: 1, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 2, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 3, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 4, url: "/api/placeholder/300/200", alt: "image40" },
-      { id: 5, url: "/api/placeholder/300/200", alt: "image40" }
+      { id: 1, url: Quick1, alt: "quick", thumbnail: Quick1 },
+      { id: 2, url: Quick2, alt: "quick", thumbnail: Quick2 },
+      { id: 3, url: Quick3, alt: "quick", thumbnail: Quick3 },
+      { id: 4, url: Quick4, alt: "quick", thumbnail: Quick4 },
+      { id: 5, url: Quick5, alt: "quick", thumbnail: Quick5 },
     ],
     overview: {
       softwareOverview: "Salesforce is an American cloud computing company headquartered in San Francisco, California. Though its revenue comes from a customer relationship management (CRM) product, Salesforce also capitalizes on commercial applications of social networking through acquisition.",
@@ -729,9 +735,9 @@ const QuickSmartReview = ({ product = mockProductData }) => {
                       src={product.images[currentImageIndex].url} 
                       alt={product.images[currentImageIndex].alt} 
                     />
-                    <PlayButton>
+                    {/* <PlayButton>
                       <FaPlay />
-                    </PlayButton>
+                    </PlayButton> */}
                     <RightArrow onClick={goToNextImage}>
                       <FaChevronRight />
                     </RightArrow>
@@ -758,9 +764,7 @@ const QuickSmartReview = ({ product = mockProductData }) => {
                       </Rating>
                       <WriteReview href="#">Write a Review</WriteReview>
                     </TitleSection>
-                    {/* <AvatarSection>
-                      <Avatar>H</Avatar>
-                    </AvatarSection> */}
+                    
                   </HeaderSection>
                   
                   <PricingSection>

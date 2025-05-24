@@ -63,6 +63,13 @@ import ava from '../assets/ava.svg';
 import quick from '../assets/quick.svg';
 import lowtouch from '../assets/lowtouch.svg';
 import scogologo from '../assets/scogologo.png';
+import zrikalogo from '../assets/zrikalogo.png';
+import amplifylogo from '../assets/amplifylogo.png';
+import invideologo from '../assets/invideologo.png';
+import lowtouchlogo from '../assets/lowtouchlogo.png';
+import captionslogo from '../assets/captionslogo.png';
+
+
 
 const Section = styled.section`
   width: 100%;
@@ -107,7 +114,7 @@ const HeroSection = styled(motion.section)`
 const ContentWrapper = styled(motion.div)`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px 30px;
   position: relative;
   z-index: 2;
   overflow-x: hidden;
@@ -127,10 +134,10 @@ const Container = styled(motion.div)`
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 40px;
+  font-size: 30px;
+  font-weight: 500;
+  
+  margin-bottom: z0px;
   max-width: 830px;
   margin-left: auto;
   margin-right: auto;
@@ -1029,6 +1036,7 @@ const ComparisonTable = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  margin-bottom: 80px;
   
   @media (max-width: 992px) {
     grid-template-columns: repeat(2, 1fr);
@@ -2429,61 +2437,51 @@ const Home = () => {
     },
     {
       id: 5,
-      image: QuicksmartAI,
-      title: "Quicksmart AI",
-      company: "By Vision Analytics",
+      image: captionslogo,
+      title: "Caption.AI",
+      company: "AI-Powered  Creative Tools / Assistants",
       rating: 4.5,
-      description: "Computer vision software for automated quality control and inspection systems.",
-      price: "₹6,299",
-      path: '/quick-smart-review'
-    },
-    {
-      id: 6,
-      image: NapkinAI,
-      title: "Napkin AI",
-      company: "AI-Powered Assistants",
-      rating: 4.3,
-      description: "Ava an AI assistant boosts by create drafts first helping is productivity quickly that users writing.",
-      price: "₹4,599",
-      path: '/napkin-review'
-    },
-    {
-      id: 7,
-      image: HiavaAI,
-      title: "Hiava AI",
-      company: "AI-Powered Assistants​",
-      rating: 4.8,
-      description: "Ava an AI assistant boosts by create drafts first helping is productivity quickly that users writing.",
-      price: "₹8,999",
-      path: '/hiava-review'
-    },
-    {
-      id: 8,
-      image: ScogoAI,
-      title: "Scogo AI",
-      company: "By Cloud Solutions",
-      rating: 4.9,
-      description: "Cloud-based AI infrastructure for deploying and scaling machine learning models.",
-      price: "₹5,499",
-      path: '/scogo-review'
-    },
-    {
-      id: 9,
-      image: QuicksmartAI,
-      title: "Caption AI",
-      company: "By Language Tech",
-      rating: 4.7,
-      description: "Natural language processing tool for content analysis and text summarization.",
-      price: "₹3,299",
+      description: "Captions.ai is an AI-powered creative studio offering advanced video editing.",
+      price: "₹ 9999",
       path: '/caption-review'
     },
     {
+      id: 6,
+      image: lowtouchlogo,
+      title: "Lowtouch AI",
+      company: "No-Code AI Platform",
+      rating: 4.3,
+      description: "Scogo.ai makes AI as simple and affordable as UPI to help businesses grow.",
+      price: "₹4,599",
+      path: '/lowtouch-review'
+    },
+    {
+      id: 8,
+      image: invideologo,
+      title: "InVideo AI",
+      company: "AI-Powered  Creative Tools / Assistants",
+      rating: 4.9,
+      description: " InVideo offers a user-friendly interface that allows users",
+      price: "₹5,499",
+      path: '/invideo-review'
+    },
+    {
+      id: 9,
+      image: amplifylogo,
+      title: "Ammplify AI",
+      company: "AI powered Content Studio",
+      rating: 4.7,
+      description: "Ammmplify is a hyper-personalized AI copilot designed for LinkedIn creators.",
+      price: "₹3,299",
+      path: '/ammlify-review'
+    },
+    {
       id: 10,
-      image: NapkinAI,
+      image: zrikalogo,
       title: "Zrika AI",
-      company: "By Sound Technologies",
+      company: "Financial Technology (Fintech) Services",
       rating: 5.0,
-      description: "AI-powered audio processing software for speech recognition and sound analysis.",
+      description: "Zrika is a dynamic software firm dedicated to pushing boundaries in fintech.",
       price: "₹4,799",
       path: '/zrika-review'
     }
@@ -3179,13 +3177,14 @@ const Home = () => {
         </ContentWrapper>
       </Section>
 
-      {/* <Section>
+      <Section>
         <ContentWrapper
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
         >
           <SectionTitle
+            style={{color: '#383B46', marginBottom:'30px',}}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.3 }}
@@ -3247,7 +3246,7 @@ const Home = () => {
             )}
           </ComparisonTable>
         </ContentWrapper>
-      </Section> */}
+      </Section>
 
       <HowItWorksSection
         initial={{ opacity: 0, y: 20 }}
